@@ -91,7 +91,7 @@ const Home = () => {
         id="content" 
         className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
         style={{
-          backgroundImage: `url('./airbus 04.jpg')`,
+          backgroundImage: `url('https://i.ibb.co/Gvw7bYjX/IMG-20250704-WA0279.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -152,7 +152,7 @@ const Home = () => {
         id="features" 
         className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
         style={{
-          backgroundImage: `url('./evtol third section.webp')`,
+          backgroundImage: `url('https://i.ibb.co/8gDrLgyS/IMG-20250704-WA0282.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

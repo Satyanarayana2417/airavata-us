@@ -1,57 +1,16 @@
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronDown, Zap, Shield, Clock } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from 'react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
-  const featuresRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Scroll-triggered content reveal for content section
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: 'bottom 80%',
-      onEnter: () => {
-        gsap.from('.brand-reveal', {
-          opacity: 0,
-          y: 60,
-          duration: 2,
-          stagger: 0.3,
-          ease: 'power3.out'
-        });
-      }
-    });
-
-    // Features section reveal
-    ScrollTrigger.create({
-      trigger: featuresRef.current,
-      start: 'top 80%',
-      onEnter: () => {
-        gsap.from('.feature-card', {
-          opacity: 0,
-          y: 60,
-          duration: 1,
-          stagger: 0.2,
-          ease: 'power3.out'
-        });
-      }
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="relative overflow-hidden">
       {/* Cinematic Hero Section - Air Taxi Background */}
       <section 
-        ref={heroRef} 
         className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
         style={{
           backgroundImage: `url('/lovable-uploads/ebd12fbc-533d-4ca7-b87e-72929c269ec1.png')`,
@@ -66,21 +25,49 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
         {/* Hero Two-Line Uppercase Text - Bottom-Left Position */}
-        <div className="relative z-10 pb-20 pl-12 lg:pb-32 lg:pl-20 max-w-4xl" style={{ paddingBottom: '5vw', paddingLeft: '5vw' }}>
+        <div className="relative z-10 pb-8 pl-12 lg:pb-16 lg:pl-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingLeft: '5vw' }}>
           <h1 
-            className="font-ddin text-white font-bold leading-tight text-left uppercase"
+            className="font-bold text-white leading-tight text-left uppercase mb-3"
             style={{
-              fontSize: 'clamp(1rem, 3.0vw, 2.5rem)',
-              fontFamily: 'D-DIN-Bold, Arial, Verdana, sans-serif',
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
-              letterSpacing: '0.03em',
-              margin: '0 42px 0 0',
-              
+              letterSpacing: '0.05em',
+              fontWeight: '900',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
             }}
           >
-            PIONEERING A NEW<br />
-            ERA OF TRANSPORTATION
+            THE FUTURE OF <br /> AIR MOBILITY
           </h1>
+          
+          {/* Sub heading */}
+          <p 
+            className="text-white/80 font-medium leading-relaxed text-left mb-6"
+            style={{
+              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              letterSpacing: '0.1em',
+              fontWeight: '500',
+              textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+            }}
+          >
+            Smarter. Safer. Faster.
+          </p>
+          
+          {/* Learn More Button */}
+          <button 
+            onClick={() => navigate('/mission')}
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+          >
+            {/* White hover animation background */}
+            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+            
+            {/* Button content */}
+            <div className="relative z-10 flex items-center">
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
+              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+            </div>
+          </button>
         </div>
         
         {/* Scroll Indicator */}
@@ -100,86 +87,124 @@ const Home = () => {
       </section>
 
       {/* Content Section - Revealed on Scroll */}
-      <section id="content" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Brand Reveal */}
-          <div className="mb-16">
-            <h2 className="brand-reveal font-ddin font-bold text-white mb-8 tracking-[0.2em] text-clamp-4xl sm:text-clamp-6xl lg:text-clamp-7xl leading-none">
-              Medical-grade air mobility
-            </h2>
+      <section 
+        id="content" 
+        className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
+        style={{
+          backgroundImage: `url('./airbus 04.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Content Text - Bottom-Right Position */}
+        <div className="relative z-10 pb-8 pr-12 lg:pb-16 lg:pr-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingRight: '5vw' }}>
+          <h2 
+            className="font-bold text-white leading-tight text-left uppercase mb-4"
+            style={{
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              color: '#ffffff',
+              letterSpacing: '0.05em',
+              fontWeight: '900',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              lineHeight: '1.2',
+              textAlign: 'left',
+            }}
+          >
+            NO TRAFFIC.<br />NO LIMITS
+          </h2>
+          
+          <p 
+            className="text-white/80 font-medium leading-relaxed text-left"
+            style={{
+              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              letterSpacing: '0.1em',
+              fontWeight: '500',
+              textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+              textAlign: 'left',
+              marginTop: '1rem',
+            }}
+          >
+            Reach anywhere in minutes
+          </p>
+          
+          {/* Learn More Button */}
+          <button 
+            onClick={() => navigate('/mission')}
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden mt-6"
+          >
+            {/* White hover animation background */}
+            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             
-            <div className="brand-reveal mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
-            
-            <p className="brand-reveal mt-8 text-clamp-lg sm:text-clamp-xl lg:text-clamp-2xl text-white/90 font-light leading-relaxed">
-              Luxury. Speed. Safety.
-            </p>
-          </div>
+            {/* Button content */}
+            <div className="relative z-10 flex items-center">
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
+              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+            </div>
+          </button>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" ref={featuresRef} className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="font-ddin font-bold text-white mb-8 text-clamp-3xl sm:text-clamp-4xl lg:text-clamp-5xl tracking-wide">
-              The Future of <span className="text-gradient-blue">Urban Mobility</span>
-            </h2>
-            <div className="w-24 h-px mx-auto bg-gradient-to-r from-transparent via-blue-400 to-transparent mb-8"></div>
-            <p className="text-clamp-lg text-white/70 max-w-4xl mx-auto font-light leading-relaxed">
-              Experience the next generation of transportation with our luxury air taxi service, 
-              engineered for medical emergencies and executive travel with unprecedented precision.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="feature-card group">
-              <div className="relative bg-gradient-to-br from-gray-900/20 to-gray-900/5 backdrop-blur-xl border border-gray-800/30 rounded-3xl p-10 text-center hover:border-blue-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-400/10">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-blue-400/30 to-blue-400/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Zap className="text-blue-400" size={36} />
-                  </div>
-                  <h3 className="font-ddin font-bold text-clamp-xl text-white mb-6 tracking-wide">Lightning Fast</h3>
-                  <p className="text-white/70 leading-relaxed font-light">
-                    Transform 2-hour ground commutes into 15-minute vertical flights. 
-                    Skip traffic, save lives, maximize time.
-                  </p>
-                </div>
-              </div>
+      <section 
+        id="features" 
+        className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
+        style={{
+          backgroundImage: `url('./evtol third section.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Subtle overlay for text readability */}
+        <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
+        
+        {/* Content - Bottom Left */}
+        <div className="relative z-10 pb-8 pl-12 lg:pb-16 lg:pl-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingLeft: '5vw' }}>
+          <h1 
+            className="font-bold text-white leading-tight text-left uppercase mb-3"
+            style={{
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              color: '#ffffff',
+              letterSpacing: '0.05em',
+              fontWeight: '900',
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+            }}
+          >
+            FUTURISTIC EXPERIENCE
+          </h1>
+          
+          {/* Sub heading */}
+          <p 
+            className="text-white/80 font-medium leading-relaxed text-left mb-6"
+            style={{
+              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              letterSpacing: '0.1em',
+              fontWeight: '500',
+              textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+            }}
+          >
+            NEW, PREMIUM TRAVEL EXPERIENCE
+          </p>
+          
+          {/* Explore Button */}
+          <button 
+            onClick={() => navigate('/air-taxi')}
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+          >
+            {/* White hover animation background */}
+            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+            
+            {/* Button content */}
+            <div className="relative z-10 flex items-center">
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">EXPLORE</span>
+              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
-
-            <div className="feature-card group">
-              <div className="relative bg-gradient-to-br from-gray-900/20 to-gray-900/5 backdrop-blur-xl border border-gray-800/30 rounded-3xl p-10 text-center hover:border-blue-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-400/10">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-blue-400/30 to-blue-400/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Shield className="text-blue-400" size={36} />
-                  </div>
-                  <h3 className="font-ddin font-bold text-clamp-xl text-white mb-6 tracking-wide">Medical Grade Safety</h3>
-                  <p className="text-white/70 leading-relaxed font-light">
-                    Hospital-standard safety protocols, certified medical equipment, 
-                    and trained emergency response teams.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="feature-card group">
-              <div className="relative bg-gradient-to-br from-gray-900/20 to-gray-900/5 backdrop-blur-xl border border-gray-800/30 rounded-3xl p-10 text-center hover:border-blue-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-400/10">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-blue-400/30 to-blue-400/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="text-blue-400" size={36} />
-                  </div>
-                  <h3 className="font-ddin font-bold text-clamp-xl text-white mb-6 tracking-wide">24/7 Readiness</h3>
-                  <p className="text-white/70 leading-relaxed font-light">
-                    Round-the-clock emergency response and executive transport services. 
-                    Ready when you need us most.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </button>
         </div>
       </section>
     </div>

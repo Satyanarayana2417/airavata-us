@@ -17,7 +17,7 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { path: '/', label: 'Home' },
+    { path: '/air-taxi', label: 'Air Taxi' },
     { path: '/mission', label: 'Our Mission' },
     { path: '/about', label: 'About Us' },
     { path: '/objectives', label: 'Future Objectives' },

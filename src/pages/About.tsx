@@ -1,165 +1,163 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Users, Target, Lightbulb } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    sectionsRef.current.forEach((section, index) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top 70%',
-        onEnter: () => {
-          gsap.from(section.querySelectorAll('.animate-item'), {
-            opacity: 0,
-            y: 40,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power2.out'
-          });
-        }
+    if (headerRef.current) {
+      const elements = headerRef.current.children;
+      
+      // Set initial state
+      gsap.set(elements, {
+        x: -100,
+        opacity: 0
       });
-    });
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+      // Animate elements from left to right with stagger
+      gsap.to(elements, {
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power2.out",
+        delay: 0.5
+      });
+    }
   }, []);
 
-  const addToRefs = (el: HTMLDivElement) => {
-    if (el && !sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-airavata-black pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-orbitron font-bold text-white mb-6">
-            Meet <span className="text-airavata-blue">AIRAVATA</span>
-          </h1>
-          <p className="text-xl text-airavata-light-gray max-w-3xl mx-auto">
-            Pioneering the future of urban air mobility through innovation, 
-            expertise, and unwavering commitment to safety.
-          </p>
-        </div>
+    <div className="min-h-screen">
+      {/* Header Section */}
+      <div ref={headerRef} className="absolute top-20 left-8 z-10 max-w-md">
+        <h1 className="text-white text-4xl font-bold mb-2">
+          MEET AIRAVATA
+        </h1>
+        <div className="w-24 h-0.5 bg-white mb-4"></div>
+        <p className="text-white text-base uppercase leading-relaxed mb-6">
+          WE ARE A VISIONARY TEAM OF AVIATION EXPERTS AND TECHNOLOGY INNOVATORS UNITED BY A COMMON GOAL: REVOLUTIONIZING URBAN MOBILITY THROUGH THE SKIES.
+        </p>
+        <p className="text-white text-base uppercase leading-relaxed">
+          TODAY, WE'RE PIONEERING THE DEVELOPMENT OF LUXURIOUS, MEDICALLY-EQUIPPED AIR TAXIS THAT WILL TRANSFORM HOW PEOPLE MOVE THROUGH CITIES, STARTING WITH EMERGENCY MEDICAL TRANSPORT AND EXPANDING TO EXECUTIVE TRAVEL SOLUTIONS.
+        </p>
+      </div>
 
-        {/* Who We Are */}
-        <div ref={addToRefs} className="mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="animate-item">
-              <h2 className="text-3xl sm:text-4xl font-orbitron font-bold text-white mb-6">
-                Who We Are
-              </h2>
-              <p className="text-lg text-airavata-light-gray leading-relaxed mb-6">
-                AIRAVATA brings together aviation experts, medical professionals, 
-                and technology pioneers to revolutionize urban transportation. 
-                Our team combines decades of aerospace engineering experience with 
-                cutting-edge medical transport expertise.
-              </p>
-              <p className="text-lg text-airavata-light-gray leading-relaxed">
-                Founded by industry veterans who witnessed firsthand the limitations 
-                of ground-based emergency transport, we're committed to saving lives 
-                through innovative aerial mobility solutions.
-              </p>
-            </div>
+      {/* Section 1 - Black Screen with Image */}
+      <div className="h-screen bg-black relative overflow-hidden">
+        <img 
+          src="https://i.ibb.co/n8zMKHsB/IMG-20250719-140017.webp" 
+          alt="Futuristic Room" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Section 2 - Connect Our Team */}
+      <div className="h-screen bg-black relative overflow-hidden flex items-center justify-center">
+        <div className="text-center max-w-6xl mx-auto px-8">
+          {/* Section Title */}
+          <h2 className="text-white text-4xl font-bold mb-4 uppercase tracking-wider">
+            Connect Our Team
+          </h2>
+          {/* Line under title */}
+          <div className="w-32 h-0.5 bg-white mx-auto mb-16"></div>
+          
+          {/* Team Circles */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-20">
             
-            <div className="animate-item grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-airavata-gray/30 backdrop-blur-sm border border-airavata-gray rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold text-airavata-blue mb-2">50+</div>
-                <div className="text-airavata-light-gray text-sm">Aviation Experts</div>
-              </div>
-              <div className="bg-airavata-gray/30 backdrop-blur-sm border border-airavata-gray rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold text-airavata-blue mb-2">25+</div>
-                <div className="text-airavata-light-gray text-sm">Medical Professionals</div>
-              </div>
-              <div className="bg-airavata-gray/30 backdrop-blur-sm border border-airavata-gray rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold text-airavata-blue mb-2">100+</div>
-                <div className="text-airavata-light-gray text-sm">Years Combined Experience</div>
-              </div>
-              <div className="bg-airavata-gray/30 backdrop-blur-sm border border-airavata-gray rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold text-airavata-blue mb-2">5</div>
-                <div className="text-airavata-light-gray text-sm">Cities Launching 2025</div>
+            {/* Team Member 1 */}
+            <div className="group relative cursor-pointer">
+              <div className="relative w-80 h-80 mx-auto">
+                {/* Circle with border animation */}
+                <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
+                  <img 
+                    src="https://i.ibb.co/9kwsNb2T/Picsart-25-07-19-14-38-59-479.webp" 
+                    alt="CEO - Sarah Johnson" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Text overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                      SARAH JOHNSON
+                    </h3>
+                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      CEO & Founder
+                    </p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
+                    </p>
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
               </div>
             </div>
+
+            {/* Team Member 2 */}
+            <div className="group relative cursor-pointer">
+              <div className="relative w-80 h-80 mx-auto">
+                {/* Circle with border animation */}
+                <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
+                  <img 
+                    src="https://i.ibb.co/przf8JGs/Picsart-25-07-19-14-37-42-098.webp" 
+                    alt="CTO - Michael Chen" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Text overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                      MICHAEL CHEN
+                    </h3>
+                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      CTO & Co-Founder
+                    </p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
+                    </p>
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+              </div>
+            </div>
+
+            {/* Team Member 3 */}
+            <div className="group relative cursor-pointer">
+              <div className="relative w-80 h-80 mx-auto">
+                {/* Circle with border animation */}
+                <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
+                  <img 
+                    src="https://i.ibb.co/przf8JGs/Picsart-25-07-19-14-37-42-098.webp" 
+                    alt="CMO - Dr. Lisa Rodriguez" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Text overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                      DR. LISA RODRIGUEZ
+                    </h3>
+                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      Chief Medical Officer
+                    </p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
+                    </p>
+                  </div>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
 
-        {/* Our Values */}
-        <div ref={addToRefs} className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-orbitron font-bold text-white mb-6 animate-item">
-              Our Core Values
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="animate-item bg-airavata-gray/20 border border-airavata-gray rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-airavata-blue/20 to-airavata-blue/40 rounded-xl flex items-center justify-center">
-                <Users className="text-airavata-blue" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4 font-orbitron">
-                People First
-              </h3>
-              <p className="text-airavata-light-gray">
-                Every decision we make prioritizes human life, safety, and well-being. 
-                Our technology serves humanity, not the other way around.
-              </p>
-            </div>
-
-            <div className="animate-item bg-airavata-gray/20 border border-airavata-gray rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-airavata-blue/20 to-airavata-blue/40 rounded-xl flex items-center justify-center">
-                <Target className="text-airavata-blue" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4 font-orbitron">
-                Precision Excellence
-              </h3>
-              <p className="text-airavata-light-gray">
-                Medical-grade precision in every aspect of our operations. 
-                From aircraft maintenance to emergency response protocols.
-              </p>
-            </div>
-
-            <div className="animate-item bg-airavata-gray/20 border border-airavata-gray rounded-2xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-airavata-blue/20 to-airavata-blue/40 rounded-xl flex items-center justify-center">
-                <Lightbulb className="text-airavata-blue" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4 font-orbitron">
-                Innovation Leadership
-              </h3>
-              <p className="text-airavata-light-gray">
-                Pioneering the future of urban mobility through breakthrough 
-                technology and forward-thinking design solutions.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Vision Statement */}
-        <div ref={addToRefs} className="text-center">
-          <div className="animate-item bg-gradient-to-br from-airavata-blue/10 to-airavata-gray/20 rounded-3xl p-12 border border-airavata-blue/30">
-            <h2 className="text-3xl sm:text-4xl font-orbitron font-bold text-white mb-8">
-              Tech + Medical Fusion
-            </h2>
-            <p className="text-lg sm:text-xl text-airavata-light-gray leading-relaxed max-w-4xl mx-auto mb-8">
-              We're not just building aircraft – we're creating mobile medical facilities 
-              that happen to fly. Each AIRAVATA vehicle integrates advanced life-support 
-              systems, real-time patient monitoring, and direct hospital connectivity.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-airavata-blue">
-              <span>• FAA Certified Aircraft</span>
-              <span>• FDA Approved Medical Equipment</span>
-              <span>• Hospital-Grade Safety Standards</span>
-            </div>
-          </div>
-        </div>
+      {/* Section 3 - Black Screen */}
+      <div className="min-h-screen bg-black">
       </div>
     </div>
   );

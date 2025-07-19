@@ -18,8 +18,31 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Header animation (left to right)
+    if (headerRef.current) {
+      const elements = headerRef.current.children;
+      
+      // Set initial state
+      gsap.set(elements, {
+        x: -100,
+        opacity: 0
+      });
+
+      // Animate elements from left to right with stagger
+      gsap.to(elements, {
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power2.out",
+        delay: 0.5
+      });
+    }
+
+    // Form animation
     ScrollTrigger.create({
       trigger: formRef.current,
       start: 'top 70%',
@@ -63,7 +86,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-airavata-black pt-20">
+    <div className="min-h-screen bg-airavata-black pt-16">
       <style>
         {`
           @keyframes pinPulse {
@@ -91,7 +114,7 @@ const Contact = () => {
         
         {/* Contact Form - Left Side */}
         <div className="relative z-10 max-w-lg" style={{ marginLeft: '2vw' }}>
-          <div className="px-4 pb-4">
+          <div ref={headerRef} className="px-4 pb-4">
             <h1 className="text-3xl font-bold text-white mb-2 uppercase">
               GET IN TOUCH?
             </h1>

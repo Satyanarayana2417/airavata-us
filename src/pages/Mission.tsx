@@ -2,13 +2,20 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Mission = () => {
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
+  const comparisonRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     if (contentRef.current) {
       const elements = contentRef.current.children;
       
@@ -28,6 +35,35 @@ const Mission = () => {
         delay: 0.5
       });
     }
+
+    // Comparison section animation
+    if (comparisonRef.current) {
+      const beforeBox = comparisonRef.current.querySelector('.before-box');
+      const afterBox = comparisonRef.current.querySelector('.after-box');
+      
+      gsap.set([beforeBox, afterBox], {
+        y: 60,
+        opacity: 0
+      });
+
+      ScrollTrigger.create({
+        trigger: comparisonRef.current,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to([beforeBox, afterBox], {
+            y: 0,
+            opacity: 1,
+            duration: 1.0,
+            stagger: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   // Change this URL to customize the background image
@@ -120,11 +156,11 @@ const Mission = () => {
     </div>
     
     {/* Before vs After Comparison Section */}
-    <div className="w-full h-screen bg-black flex items-center justify-center p-8">
+    <div ref={comparisonRef} className="w-full h-screen bg-black flex items-center justify-center p-8">
       <div className="flex max-w-4xl w-full mx-auto overflow-hidden">
         
         {/* Before Box */}
-        <div className="bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+        <div className="before-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
           {/* White hover animation background */}
           <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
           
@@ -146,7 +182,7 @@ const Mission = () => {
         </div>
 
         {/* After Box */}
-        <div className="bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+        <div className="after-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
           {/* White hover animation background */}
           <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
           

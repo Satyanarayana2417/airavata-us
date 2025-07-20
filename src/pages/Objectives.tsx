@@ -10,6 +10,9 @@ const Objectives = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const timeline = timelineRef.current;
     if (!timeline) return;
 

@@ -21,6 +21,9 @@ const Contact = () => {
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     // Header animation (left to right)
     if (headerRef.current) {
       const elements = headerRef.current.children;

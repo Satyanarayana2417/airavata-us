@@ -35,6 +35,12 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  const handleNavClick = () => {
+    // Scroll to top when navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+  };
+
   return (
     <>
       {/* Menu Button - Always visible on all screens */}
@@ -78,7 +84,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={closeMenu}
+                onClick={handleNavClick}
                 className={`text-right py-2 border-b border-gray-700 transition-all duration-300 ease-out group transform ${
                   location.pathname === item.path
                     ? 'text-white border-white'

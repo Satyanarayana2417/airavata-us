@@ -1,8 +1,71 @@
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AirTaxi = () => {
   const navigate = useNavigate();
+  const heroContentRef = useRef<HTMLDivElement>(null);
+  const secondContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
+    // Hero section animation (left to right)
+    if (heroContentRef.current) {
+      const elements = heroContentRef.current.children;
+      
+      // Set initial state
+      gsap.set(elements, {
+        x: -100,
+        opacity: 0
+      });
+
+      // Animate elements from left to right with stagger
+      gsap.to(elements, {
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power2.out",
+        delay: 0.5
+      });
+    }
+
+    // Second section animation on scroll (right to left)
+    if (secondContentRef.current) {
+      const elements = secondContentRef.current.children;
+      
+      // Set initial state
+      gsap.set(elements, {
+        x: 100,
+        opacity: 0
+      });
+
+      // Create scroll trigger animation
+      ScrollTrigger.create({
+        trigger: secondContentRef.current,
+        start: 'top 70%',
+        onEnter: () => {
+          gsap.to(elements, {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -22,7 +85,7 @@ const AirTaxi = () => {
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
         {/* Text and Button - Bottom Left */}
-        <div className="relative z-10 pb-16 pl-8 max-w-lg" style={{ paddingBottom: '3vw', paddingLeft: '4vw' }}>
+        <div ref={heroContentRef} className="relative z-10 pb-16 pl-8 max-w-lg" style={{ paddingBottom: '3vw', paddingLeft: '4vw' }}>
           <h1 
             className="font-bold text-white leading-tight uppercase mb-6"
             style={{
@@ -83,7 +146,7 @@ const AirTaxi = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 pointer-events-none"></div>
         
         {/* Content - Right Bottom */}
-        <div className="relative z-10 pb-16 pr-16 max-w-lg text-right" style={{ paddingBottom: '3vw', paddingRight: '6vw' }}>
+        <div ref={secondContentRef} className="relative z-10 pb-16 pr-16 max-w-lg text-right" style={{ paddingBottom: '3vw', paddingRight: '6vw' }}>
           <h2 
             className="font-bold text-white leading-tight uppercase mb-8"
             style={{

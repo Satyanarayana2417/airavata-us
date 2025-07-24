@@ -548,7 +548,7 @@ const Home = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
             }}
           >
-            THE FUTURE OF <br /> AIR MOBILITY
+            OPTIMIZING TRAVEL,  <br /> SAVING YOUR TIME
           </h1>
           
           {/* Sub heading */}
@@ -575,7 +575,7 @@ const Home = () => {
             
             {/* Button content */}
             <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">Our Vision</span>
               <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
@@ -602,7 +602,7 @@ const Home = () => {
         id="content" 
         className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
         style={{
-          backgroundImage: `url('https://i.ibb.co/Gvw7bYjX/IMG-20250704-WA0279.webp')`,
+          backgroundImage: `url('https://i.ibb.co/mVCWpZhw/IMG-20250724-WA0124.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -623,7 +623,7 @@ const Home = () => {
               textAlign: 'left',
             }}
           >
-            NO TRAFFIC.<br />NO LIMITS
+            ESCAPE <br /> CONGESTION<br />AND TRAFFIC
           </h2>
           
           <p 

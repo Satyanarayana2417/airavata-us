@@ -15,6 +15,16 @@ const AirTaxi = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
+    // Check if URL has #services hash and scroll to services section
+    if (window.location.hash === '#services') {
+      setTimeout(() => {
+        const servicesSection = document.getElementById('services-section');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+    
     // Hero section animation (left to right)
     if (heroContentRef.current) {
       const elements = heroContentRef.current.children;
@@ -198,6 +208,152 @@ const AirTaxi = () => {
               <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
+        </div>
+      </section>
+
+      {/* Third Section - Our Services */}
+      <section 
+        id="services-section"
+        className="relative min-h-screen bg-black py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-4 uppercase tracking-wider">
+              Our Services
+            </h2>
+            <p className="text-xl text-white/80 font-medium tracking-wide">
+              Elevating transportation — one flight at a time.
+            </p>
+            <div className="w-32 h-0.5 bg-white mx-auto mt-8"></div>
+          </div>
+
+          {/* Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+            
+            {/* Service 1 - Point-to-Point Air Transport */}
+            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
+                Point-to-Point Air Transport
+              </h3>
+              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
+                Offer rapid aerial transport between designated takeoff and landing zones, bypassing conventional road congestion.
+              </p>
+            </div>
+
+            {/* Service 2 - Aerial Tourism Experiences */}
+            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
+                Aerial Tourism
+              </h3>
+              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
+                Provide scenic flight experiences that offer panoramic views of landscapes, landmarks, and natural wonders — designed for leisure and luxury.
+              </p>
+            </div>
+
+            {/* Service 3 - Emergency Air Services */}
+            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
+                Emergency Response Operations
+              </h3>
+              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
+                Deploy air ambulances and rapid aerial response units for medical emergencies, disaster relief, and time-critical situations.
+              </p>
+            </div>
+
+            {/* Service 4 - Pilot Operations */}
+            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
+                Pilot Program
+              </h3>
+              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
+                Conduct trial-based operations in select pre-authorized regions to evaluate performance, safety, and scalability of aerial mobility services.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Future Vision Section */}
+          <div className="bg-gradient-to-r from-airavata-gray/10 to-airavata-gray/20 backdrop-blur-sm border border-airavata-gray/30 rounded-2xl p-12 mb-16">
+            <div className="text-center">
+              <h3 className="text-4xl font-bold text-white mb-4 uppercase tracking-wider">
+                What’s Ahead
+              </h3>
+              <p className="text-xl text-white/90 font-medium mb-8 tracking-wide">
+                "Personal Air Mobility, On-Demand"
+              </p>
+              <p className="text-lg text-white/80 leading-relaxed max-w-4xl mx-auto">
+                Envisioning a fully dynamic air taxi network that enables users to request aerial rides from any location to any destination — seamlessly, securely, and instantly.
+              </p>
+            </div>
+          </div>
+
+          {/* Call-to-Action Section */}
+          <div className="text-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              
+              {/* Our Objectives Button */}
+              <button 
+                onClick={() => navigate('/objectives')}
+                className="group relative inline-flex items-center px-10 py-5 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase overflow-hidden"
+              >
+                {/* White hover animation background */}
+                <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                
+                {/* Button content */}
+                <div className="relative z-10 flex items-center">
+                  <span className="mr-3 group-hover:text-black transition-colors duration-500">Our Objectives</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                </div>
+              </button>
+
+              {/* Contact Us Button */}
+              <button 
+                onClick={() => navigate('/contact')}
+                className="group relative inline-flex items-center px-10 py-5 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase overflow-hidden"
+              >
+                {/* White hover animation background */}
+                <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                
+                {/* Button content */}
+                <div className="relative z-10 flex items-center">
+                  <span className="mr-3 group-hover:text-black transition-colors duration-500">Contact Us</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                </div>
+              </button>
+
+            </div>
+          </div>
+
         </div>
       </section>
     </div>

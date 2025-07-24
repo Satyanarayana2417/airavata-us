@@ -21,7 +21,7 @@ const Navigation = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/mission', label: 'Our Mission' },
-    { path: '/air-taxi', label: 'Air taxi' },
+    { path: '/air-taxi', label: 'Services' },
     
     { path: '/objectives', label: 'Future Objectives' },
     { path: '/contact', label: 'Contact' },
@@ -35,7 +35,27 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
-  const handleNavClick = () => {
+  const handleNavClick = (path: string) => {
+    // Special handling for Services to scroll to services section
+    if (path === '/air-taxi') {
+      // If already on air-taxi page, scroll to services section
+      if (location.pathname === '/air-taxi') {
+        const servicesSection = document.getElementById('services-section');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navigate to air-taxi page, then scroll to services section after navigation
+        window.location.href = '/air-taxi#services';
+      }
+    } else {
+      // Scroll to top when navigating to other pages
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    closeMenu();
+  };
+
+  const handleGeneralNavClick = () => {
     // Scroll to top when navigating
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeMenu();
@@ -84,7 +104,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={handleNavClick}
+                onClick={() => item.path === '/air-taxi' ? handleNavClick(item.path) : handleGeneralNavClick()}
                 className={`text-right py-2 border-b border-gray-700 transition-all duration-300 ease-out group transform ${
                   location.pathname === item.path
                     ? 'text-white border-white'

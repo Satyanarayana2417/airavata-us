@@ -78,7 +78,7 @@ const AirTaxi = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden pt-16">
       {/* Hero Section - Full Background Image */}
       <section 
         className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
@@ -180,7 +180,7 @@ const AirTaxi = () => {
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.02em',
               fontWeight: '500',
-              textShadow: '0 1px 4px rgba(0,0,0,0.3)',
+              textShadow: '0 1px 4px rgExcellent! The development server is running successfully on port 8081. Now let me open the website to test the loading animation:ba(0,0,0,0.3)',
               lineHeight: '1.6',
             }}
           >
@@ -228,76 +228,229 @@ const AirTaxi = () => {
             <div className="w-32 h-0.5 bg-white mx-auto mt-8"></div>
           </div>
 
-          {/* Service Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          {/* Service Cards List - Side by Side Layout */}
+          <div className="space-y-12 mb-20">
             
             {/* Service 1 - Point-to-Point Air Transport */}
-            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Pointtopoint_airport_transfer_202507242058_.mp4" type="video/mp4" />
+                </video>
+              </div>
+              
+              {/* Description Card */}
+              <div 
+                onClick={() => {
+                  const servicesSection = document.getElementById('services-section');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer"
+              >
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Point-to-Point Air Transport
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Revolutionary urban mobility through rapid aerial transport between designated takeoff and landing zones, bypassing conventional road congestion for faster, more efficient travel experience.
+                  </p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
-                Point-to-Point Air Transport
-              </h3>
-              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
-                Offer rapid aerial transport between designated takeoff and landing zones, bypassing conventional road congestion.
-              </p>
             </div>
 
-            {/* Service 2 - Aerial Tourism Experiences */}
-            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
+            {/* Service 2 - Aerial Tourism */}
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Description Card (Left on this one for variety) */}
+              <div 
+                onClick={() => {
+                  const servicesSection = document.getElementById('services-section');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer lg:order-1"
+              >
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Aerial Tourism
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Luxury sky adventures offering scenic flight experiences with panoramic views of landscapes, landmarks, and natural wonders designed for leisure and premium travel experiences.
+                  </p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
-                Aerial Tourism
-              </h3>
-              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
-                Provide scenic flight experiences that offer panoramic views of landscapes, landmarks, and natural wonders — designed for leisure and luxury.
-              </p>
+              
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 lg:order-2 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Tourism_experience_8second_202507242059_ati.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
 
-            {/* Service 3 - Emergency Air Services */}
-            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                  </svg>
+            {/* Service 3 - Emergency Response */}
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Emergency_medical_service_202507242059_txe26.mp4" type="video/mp4" />
+                </video>
+              </div>
+              
+              {/* Description Card */}
+              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer">
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Emergency Response
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Rapid air ambulance and disaster relief operations with aerial response units for medical emergencies and time-critical emergency situations requiring immediate action.
+                  </p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
-                Emergency Response Operations
-              </h3>
-              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
-                Deploy air ambulances and rapid aerial response units for medical emergencies, disaster relief, and time-critical situations.
-              </p>
             </div>
 
-            {/* Service 4 - Pilot Operations */}
-            <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-6 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white/20 transition-colors duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+            {/* Service 4 - Pilot Program */}
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Description Card (Left on this one for variety) */}
+              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer lg:order-1">
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Pilot Program
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Testing safety and scalability through trial-based operations in select pre-authorized regions to evaluate performance and prepare for future expansion of aerial mobility services.
+                  </p>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white/90 transition-colors duration-300">
-                Pilot Program
-              </h3>
-              <p className="text-white/80 leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300">
-                Conduct trial-based operations in select pre-authorized regions to evaluate performance, safety, and scalability of aerial mobility services.
-              </p>
+              
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 lg:order-2 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Future_infrastructure_vertiports_20250724205.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+            {/* Service 5 - Cargo Point-to-Point Service */}
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Cargo_transport_8second_202507242059_pv4tg.mp4" type="video/mp4" />
+                </video>
+              </div>
+              
+              {/* Description Card */}
+              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer">
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Cargo Transport
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Fast delivery via point-to-point air corridors for secure transportation of critical cargo between designated aerial hubs, ideal for medical supplies and urgent logistics.
+                  </p>
+                </div>
+              </div>
             </div>
 
           </div>

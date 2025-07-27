@@ -10,7 +10,19 @@ gsap.registerPlugin(ScrollTrigger);
 const Mission = () => {
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
+  const secondSectionRef = useRef<HTMLDivElement>(null);
   const comparisonRef = useRef<HTMLDivElement>(null);
+  const solutionSectionRef = useRef<HTMLDivElement>(null);
+  
+  // Function to scroll to solution section
+  const scrollToSolution = () => {
+    if (solutionSectionRef.current) {
+      solutionSectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   useEffect(() => {
     // Scroll to top when component mounts
@@ -61,6 +73,31 @@ const Mission = () => {
       });
     }
 
+    // Second section animation
+    if (secondSectionRef.current) {
+      const elements = secondSectionRef.current.children;
+      
+      // Set initial state - slide from right
+      gsap.set(elements, {
+        x: 100,
+        opacity: 0
+      });
+
+      ScrollTrigger.create({
+        trigger: secondSectionRef.current,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(elements, {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -77,7 +114,8 @@ const Mission = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('./mission 1page.avif')`, 
+          backgroundImage: `url('./mission 1page.avif')`,
+          top: '4rem', // Push background down to account for navbar height
         }}
       >
       </div>
@@ -98,7 +136,7 @@ const Mission = () => {
               lineHeight: '1.2',
             }}
           >
-            Solving Urban Congestion<br />from the Sky
+            THE PROBLEM<br />
           </h1>
           
           {/* Sub Text */}
@@ -114,9 +152,7 @@ const Mission = () => {
               textTransform: 'uppercase',
             }}
           >
-          Our mission is to unlock the third dimension of transportation, creating a smart, sustainable, and accessible aerial mobility ecosystem. We aim to empower cities, enhance connectivity, and deliver a future where mobility is cleaner, faster, and frictionless.
-            <br /><br />
-           By embracing the skies, AIRAVATA revolutionizes mobility through advanced vertical takeoff and landing (VTOL) air taxis that dramatically reduce travel time—transforming hours into minutes. Designed for urban commutes, critical medical emergencies, and executive travel, AIRAVATA ensures that time, safety, and efficiency are no longer compromised by traffic or terrain
+          Traditional transport systems are overwhelmed—congested roads, unpredictable delays, and limited emergency mobility restrict both daily life and critical services. As cities grow, time loss and inefficiency become part of everyday travel.
           </p>
           
           {/* Buttons */}
@@ -151,6 +187,84 @@ const Mission = () => {
               </div>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Second Section - The Problem We're Solving */}
+    <div className="w-full h-screen relative flex items-center justify-end">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://i.ibb.co/9Hvwh46m/IMG-20250727-103216.webp')`, // Replace with your image URL
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+      
+      <div ref={secondSectionRef} className="relative z-10 max-w-2xl p-8 text-right">
+        <h2 
+          className="text-white mb-6"
+          style={{
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontSize: '2rem',
+            fontWeight: '600',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+            lineHeight: '1.2',
+          }}
+        >
+          You’ve Been Here Before
+        </h2>
+        
+        <div className="w-32 h-0.5 bg-white mb-8 ml-auto"></div>
+        
+        <div 
+          className="text-white/90 leading-relaxed mb-12 space-y-6"
+          style={{
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontSize: '1rem',
+            fontWeight: '400',
+            letterSpacing: '0.02em',
+            textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+            lineHeight: '1.6',
+          }}
+        >
+          <div className="space-y-2">
+            <p className="font-semibold">Gridlocked streets. Soaring fuel costs.</p>
+            <p>A 20-minute drive takes 90. Deadlines missed.</p>
+            <p>Emergencies delayed. Lives at risk.</p>
+          </div>
+          
+          <div className="space-y-2">
+            <p>Airports? No better — long lines, security checks, delays.</p>
+          </div>
+          
+          <div className="space-y-2">
+            <p>Whether it's your daily commute or a critical moment,</p>
+            <p className="font-semibold">Today's transport is slow, unpredictable, and outdated.</p>
+            <p className="text-red-400 font-semibold">It's costing us time, money — and sometimes, lives.</p>
+          </div>
+        </div>
+        
+        {/* Call-to-Action Button */}
+        <div className="flex justify-end">
+          <button 
+            onClick={scrollToSolution}
+            className="group relative inline-flex items-center px-10 py-5 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+          >
+            {/* White hover animation background */}
+            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+            
+            {/* Button content */}
+            <div className="relative z-10 flex items-center">
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">See Our Solution</span>
+              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+            </div>
+          </button>
         </div>
       </div>
     </div>
@@ -203,6 +317,97 @@ const Mission = () => {
           </div>
         </div>
 
+      </div>
+    </div>
+    
+    {/* Fourth Section - Our Services & Infrastructure */}
+    <div ref={solutionSectionRef} className="w-full min-h-screen relative flex items-center justify-center py-16">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://i.ibb.co/dybMFS0/IMG-20250727-112558.webp')`, // Replace with your image URL
+        }}
+      >
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/70"></div>
+      </div>
+      
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-8">
+        <h2 className="text-white text-4xl font-bold mb-4 uppercase tracking-wider">
+          Our vision & solution
+        </h2>
+        <div className="w-32 h-0.5 bg-white mx-auto mb-16"></div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Point-to-Point Air Travel */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🚁</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Point-to-Point Air Travel
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Say goodbye to traffic delays. Our air taxis offer direct, uninterrupted city-to-city and intra-city routes — fast, precise, and hassle-free.
+            </p>
+          </div>
+
+          {/* Emergency Air Services */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🆘</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Emergency Air Services
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Designed for critical moments, our emergency response crafts ensure rapid airlift services when time is everything.
+            </p>
+          </div>
+
+          {/* Vertiport & Ground Hub Network */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🛬</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Vertiport & Ground Hub Network
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              We're building a dense network of vertiports and ground ports for smooth and efficient sky-to-ground transitions.
+            </p>
+          </div>
+
+          {/* Future-Ready Tech Ecosystem */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🔗</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Future-Ready Tech Ecosystem
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Our infrastructure is built to integrate with next-gen mobility solutions, ensuring long-term compatibility and intelligent automation.
+            </p>
+          </div>
+
+          {/* Hospital Helipad Integration */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🏥</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Hospital Helipad Integration
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Strategically placed helipads on local hospitals enable immediate medical airlifts — bridging time-sensitive care gaps.
+            </p>
+          </div>
+
+          {/* Statewide Helipad Connectivity */}
+          <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
+            <div className="text-3xl mb-3">🌐</div>
+            <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+              Statewide Helipad Connectivity (AP & TS)
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed">
+              We're creating full connectivity between every helipad across Andhra Pradesh and Telangana — laying the foundation for regional air mobility.
+            </p>
+          </div>
+
+        </div>
       </div>
     </div>
     </>

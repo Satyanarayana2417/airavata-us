@@ -492,7 +492,7 @@ const Home = () => {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden pt-16">
       {/* New Black Screen Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center bg-black"
@@ -602,7 +602,7 @@ const Home = () => {
         id="content" 
         className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
         style={{
-          backgroundImage: `url('https://i.ibb.co/mVCWpZhw/IMG-20250724-WA0124.webp')`,
+          backgroundImage: `url('https://i.ibb.co/XQXyZF2/IMG-20250727-090428.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -663,7 +663,7 @@ const Home = () => {
         id="features" 
         className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
         style={{
-          backgroundImage: `url('https://i.ibb.co/8gDrLgyS/IMG-20250704-WA0282.webp')`,
+          backgroundImage: `url('https://i.ibb.co/8nvjKwX0/IMG-20250727-001615.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'

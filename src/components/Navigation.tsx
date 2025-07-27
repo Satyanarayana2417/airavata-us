@@ -5,17 +5,36 @@ import { Menu, X, Home, Plane, Target, Users, Zap, Phone } from 'lucide-react';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Set scrolled state for styling
+      setScrolled(currentScrollY > 50);
+      
+      // Show/hide menu button based on scroll direction
+      if (currentScrollY < 100) {
+        // Always show at the top
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide menu button
+        setVisible(false);
+      } else {
+        // Scrolling up - show menu button
+        setVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -45,7 +64,7 @@ const Navigation = () => {
           servicesSection.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        // Navigate to air-taxi page, then scroll to services section after navigation
+        // Navigate to air-taxi page and scroll to services section
         window.location.href = '/air-taxi#services';
       }
     } else {
@@ -63,10 +82,12 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Menu Button - Always visible on all screens */}
+      {/* Menu Button - Hidden on desktop (lg and above), visible on mobile and tablet */}
       <button
         onClick={toggleMenu}
-        className={`fixed top-6 right-6 z-50 p-3 rounded-full transition-all duration-300 ${
+        className={`fixed top-6 right-6 z-50 p-3 rounded-full transition-all duration-300 lg:hidden transform ${
+          visible ? 'translate-y-0' : '-translate-y-20'
+        } ${
           scrolled ? 'bg-black/30 backdrop-blur-md' : 'bg-black/20'
         } text-white hover:bg-black/50`}
       >

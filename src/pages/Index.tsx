@@ -33,7 +33,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden pt-16">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

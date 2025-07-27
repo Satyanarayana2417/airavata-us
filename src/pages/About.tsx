@@ -139,7 +139,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16">
       {/* Header Section */}
       <div ref={headerRef} className="absolute top-20 left-8 z-10 max-w-md">
         <h1 className="text-white text-4xl font-bold mb-2">

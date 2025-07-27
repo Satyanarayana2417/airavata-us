@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navigation from "./components/Navigation";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AirTaxi from "./pages/AirTaxi";
@@ -42,6 +43,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Navigation />
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/air-taxi" element={<AirTaxi />} />

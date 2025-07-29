@@ -108,8 +108,8 @@ const Mission = () => {
   
   return (
     <>
-      <div className="min-h-screen relative">
-      
+      <div className="min-h-screen relative overflow-x-hidden">
+
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -119,16 +119,16 @@ const Mission = () => {
         }}
       >
       </div>
-      
+
       {/* Content area - ready for your content */}
-      <div className="relative z-10 flex items-center justify-start min-h-screen p-8">
-        <div ref={contentRef} className="max-w-2xl">
+      <div className="relative z-10 flex items-center justify-start min-h-screen px-2 xs:px-4 sm:px-8 w-full">
+        <div ref={contentRef} className="w-full max-w-full xs:max-w-lg sm:max-w-xl">
           {/* Mission Heading */}
           <h1 
-            className="text-white max-w-xl mb-6"
+            className="text-white max-w-full xs:max-w-xl mb-4 xs:mb-6"
             style={{
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              fontSize: '2rem',
+              fontSize: 'clamp(1.5rem, 4vw, 2rem)',
               fontWeight: '600',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
@@ -152,7 +152,7 @@ const Mission = () => {
               textTransform: 'uppercase',
             }}
           >
-          Traditional transport systems are overwhelmed—congested roads, unpredictable delays, and limited emergency mobility restrict both daily life and critical services. As cities grow, time loss and inefficiency become part of everyday travel.
+          Traditional transport systems are overwhelmed—congested <br />roads, unpredictable delays, and limited emergency mobility <br />restrict both daily life and critical services. As cities grow, <br /> time loss and inefficiency become part of everyday travel.
           </p>
           
           {/* Buttons */}
@@ -192,7 +192,7 @@ const Mission = () => {
     </div>
     
     {/* Second Section - The Problem We're Solving */}
-    <div className="w-full h-screen relative flex items-center justify-end">
+    <div className="w-full h-screen relative flex items-center justify-end overflow-x-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -204,7 +204,7 @@ const Mission = () => {
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
       
-      <div ref={secondSectionRef} className="relative z-10 max-w-2xl p-8 text-right">
+      <div ref={secondSectionRef} className="relative z-10 w-full px-0 sm:px-8 text-right">
         <h2 
           className="text-white mb-6"
           style={{
@@ -270,11 +270,11 @@ const Mission = () => {
     </div>
     
     {/* Before vs After Comparison Section */}
-    <div ref={comparisonRef} className="w-full h-screen bg-black flex items-center justify-center p-8">
-      <div className="flex max-w-4xl w-full mx-auto overflow-hidden">
+    <div ref={comparisonRef} className="w-full h-auto min-h-screen bg-black flex items-center justify-center px-0 sm:px-8 overflow-x-hidden">
+      <div className="flex flex-col md:flex-row w-full mx-auto overflow-hidden gap-4 md:gap-0">
         
         {/* Before Box */}
-        <div className="before-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+        <div className="before-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-6 sm:p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group min-w-0">
           {/* White hover animation background */}
           <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
           
@@ -296,7 +296,7 @@ const Mission = () => {
         </div>
 
         {/* After Box */}
-        <div className="after-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+        <div className="after-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-6 sm:p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group min-w-0">
           {/* White hover animation background */}
           <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
           
@@ -321,7 +321,7 @@ const Mission = () => {
     </div>
     
     {/* Fourth Section - Our Services & Infrastructure */}
-    <div ref={solutionSectionRef} className="w-full min-h-screen relative flex items-center justify-center py-16">
+    <div ref={solutionSectionRef} className="w-full min-h-screen relative flex items-center justify-center py-8 sm:py-16 overflow-x-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -333,13 +333,13 @@ const Mission = () => {
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-8">
+      <div className="relative z-10 text-center w-full px-0 sm:px-8 mx-auto">
         <h2 className="text-white text-4xl font-bold mb-4 uppercase tracking-wider">
           Our vision & solution
         </h2>
         <div className="w-32 h-0.5 bg-white mx-auto mb-16"></div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           
           {/* Point-to-Point Air Travel */}
           <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">

@@ -95,11 +95,11 @@ const AirTaxi = () => {
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
         {/* Text and Button - Bottom Left */}
-        <div ref={heroContentRef} className="relative z-10 pb-16 pl-8 max-w-lg" style={{ paddingBottom: '3vw', paddingLeft: '4vw' }}>
+        <div ref={heroContentRef} className="relative z-10 pb-8 pl-4 xxs:pb-12 xxs:pl-6 xs:pb-16 xs:pl-8 max-w-xs xxs:max-w-sm xs:max-w-lg" style={{ paddingBottom: 'clamp(2rem, 3vw, 4rem)', paddingLeft: 'clamp(1rem, 4vw, 3rem)' }}>
           <h1 
-            className="font-bold text-white leading-tight uppercase mb-6"
+            className="font-bold text-white leading-tight uppercase mb-4 xxs:mb-6"
             style={{
-              fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+              fontSize: 'clamp(1rem, 4vw, 2rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -112,9 +112,9 @@ const AirTaxi = () => {
           </h1>
           
           <p 
-            className="text-white/90 font-medium leading-relaxed mb-8"
+            className="text-white/90 font-medium leading-relaxed mb-6 xxs:mb-8"
             style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.125rem)',
+              fontSize: 'clamp(0.75rem, 2.2vw, 1.125rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.02em',
               fontWeight: '500',

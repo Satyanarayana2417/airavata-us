@@ -18,6 +18,15 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		screens: {
+			'xxs': '320px',  // Very small devices
+			'xs': '375px',   // Small devices 
+			'sm': '640px',   // Tablets
+			'md': '768px',   // Desktop
+			'lg': '1024px',  // Large desktop
+			'xl': '1280px',  // Extra large
+			'2xl': '1536px', // 2X Extra large
+		},
 		extend: {
 			fontFamily: {
 				'ddin': ['D-DIN', 'Arial', 'Verdana', 'sans-serif'],
@@ -98,6 +107,10 @@ export default {
 				'neural-pulse': {
 					'0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
 					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+				},
+				'propeller-spin': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -106,9 +119,14 @@ export default {
 				'fade-in': 'fade-in 1s ease-out',
 				'float': 'float 8s ease-in-out infinite',
 				'glow': 'glow 3s ease-in-out infinite alternate',
-				'neural-pulse': 'neural-pulse 4s ease-in-out infinite'
+				'neural-pulse': 'neural-pulse 4s ease-in-out infinite',
+				'propeller-spin': 'propeller-spin 0.1s linear infinite'
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		// @ts-ignore
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		require("tailwindcss-animate")
+	],
 } satisfies Config;

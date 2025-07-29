@@ -27,15 +27,69 @@
   font-family: 'D-DIN', 'Arial', 'Verdana', sans-serif;
 }
 
-/* Custom responsive text sizing */
-.text-clamp-2xl { font-size: clamp(1.5rem, 4vw, 2.5rem); }
-.text-clamp-3xl { font-size: clamp(1.875rem, 5vw, 3rem); }
-.text-clamp-4xl { font-size: clamp(2.25rem, 6vw, 3.75rem); }
-.text-clamp-5xl { font-size: clamp(3rem, 7vw, 4.5rem); }
-.text-clamp-6xl { font-size: clamp(3.75rem, 8vw, 5.5rem); }
-.text-clamp-7xl { font-size: clamp(4.5rem, 9vw, 6.5rem); }
+/* Custom responsive text sizing - Enhanced for small devices */
+.text-clamp-xs { font-size: clamp(0.75rem, 2vw, 0.875rem); }
+.text-clamp-sm { font-size: clamp(0.875rem, 2.5vw, 1rem); }
+.text-clamp-base { font-size: clamp(1rem, 2.8vw, 1.125rem); }
 .text-clamp-lg { font-size: clamp(1.125rem, 2.5vw, 1.25rem); }
 .text-clamp-xl { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+.text-clamp-2xl { font-size: clamp(1.25rem, 3.5vw, 2rem); }
+.text-clamp-3xl { font-size: clamp(1.5rem, 4.5vw, 2.5rem); }
+.text-clamp-4xl { font-size: clamp(1.875rem, 5.5vw, 3rem); }
+.text-clamp-5xl { font-size: clamp(2.25rem, 6.5vw, 3.75rem); }
+.text-clamp-6xl { font-size: clamp(2.75rem, 7.5vw, 4.5rem); }
+.text-clamp-7xl { font-size: clamp(3.25rem, 8.5vw, 5.5rem); }
+
+/* Additional utility classes for very small devices */
+@media (max-width: 374px) {
+  .text-xxs-responsive { font-size: 0.7rem !important; }
+  .text-xs-responsive { font-size: 0.75rem !important; }
+  .text-sm-responsive { font-size: 0.8rem !important; }
+  .px-xxs { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .py-xxs { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .m-xxs { margin: 0.5rem; }
+  .w-xxs-full { width: calc(100% - 1rem); }
+}
+
+/* Force minimum font sizes for readability on very small screens */
+@media (max-width: 420px) {
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2 !important;
+  }
+  
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Ensure buttons don't overflow */
+  button, .btn {
+    max-width: 100% !important;
+    word-wrap: break-word;
+    white-space: normal !important;
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Smaller containers for very small screens */
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* Responsive images */
+@media (max-width: 420px) {
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
 
 /* Gradient text effect */
 .text-gradient-blue {

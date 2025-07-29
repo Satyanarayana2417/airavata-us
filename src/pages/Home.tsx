@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
+import LoadingAnimation from '@/components/LoadingAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +45,7 @@ const Home = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -491,35 +493,17 @@ const Home = () => {
     }, 1000);
   };
 
-  return (
-    <div className="relative overflow-hidden pt-16">
-      {/* New Black Screen Section */}
-      <section 
-        className="relative min-h-screen flex items-center justify-center bg-black"
-        style={{
-          backgroundImage: `url('https://i.ibb.co/Fq4LhRvc/IMG-20250717-113043.webp')`, // Change this URL to your desired image
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
-        
-        <div ref={logoSectionRef} className="relative z-10 text-center text-white">
-          {/* Airavata Logo */}
-          <img 
-            src="/1000127425-removebg-preview.png" 
-            alt="AIRAVATA" 
-            className="mx-auto mb-8 h-64 w-auto md:h-80 lg:h-96 xl:h-[28rem]"
-            style={{ 
-              maxHeight: '450px',
-              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))'
-            }}
-          />
-        </div>
-      </section>
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
+  // Show loading animation first
+  if (isLoading) {
+    return <LoadingAnimation onAnimationComplete={handleLoadingComplete} />;
+  }
+
+  return (
+    <div className="relative overflow-hidden pt-1">
       {/* Cinematic Hero Section - Air Taxi Background */}
       <section 
         className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
@@ -536,11 +520,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
         {/* Hero Two-Line Uppercase Text - Bottom-Left Position */}
-        <div ref={heroContentRef} className="relative z-10 pb-8 pl-12 lg:pb-16 lg:pl-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingLeft: '5vw' }}>
+        <div ref={heroContentRef} className="relative z-10 pb-1 pl-1 xxs:pb-2 xxs:pl-2 xs:pb-4 xs:pl-4 sm:pb-6 sm:pl-8 lg:pb-12 lg:pl-16 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-3xl" style={{ paddingBottom: 'clamp(0.5rem, 1.5vw, 2rem)', paddingLeft: 'clamp(0.25rem, 3vw, 1.5rem)' }}>
           <h1 
-            className="font-bold text-white leading-tight text-left uppercase mb-3"
+            className="font-bold text-white leading-tight text-left uppercase mb-2 xxs:mb-3"
             style={{
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontSize: 'clamp(0.9rem, 3.8vw, 2.2rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -553,9 +537,9 @@ const Home = () => {
           
           {/* Sub heading */}
           <p 
-            className="text-white/80 font-medium leading-relaxed text-left mb-6"
+            className="text-white/80 font-medium leading-relaxed text-left mb-4 xs:mb-6"
             style={{
-              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontSize: 'clamp(0.65rem, 1.3vw, 1rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.1em',
               fontWeight: '500',
@@ -568,7 +552,7 @@ const Home = () => {
           {/* Learn More Button */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
@@ -609,11 +593,11 @@ const Home = () => {
         }}
       >
         {/* Content Text - Bottom-Right Position */}
-        <div ref={secondContentRef} className="relative z-10 pb-8 pr-12 lg:pb-16 lg:pr-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingRight: '5vw' }}>
+        <div ref={secondContentRef} className="relative z-10 pb-2 pr-2 xxs:pb-4 xxs:pr-4 xs:pb-6 xs:pr-6 sm:pb-8 sm:pr-12 lg:pb-16 lg:pr-20 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-4xl" style={{ paddingBottom: 'clamp(1rem, 2vw, 3rem)', paddingRight: 'clamp(0.5rem, 4vw, 2rem)' }}>
           <h2 
-            className="font-bold text-white leading-tight text-left uppercase mb-4"
+            className="font-bold text-white leading-tight text-left uppercase mb-3 xxs:mb-4"
             style={{
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontSize: 'clamp(1rem, 4.5vw, 2.5rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -629,13 +613,13 @@ const Home = () => {
           <p 
             className="text-white/80 font-medium leading-relaxed text-left"
             style={{
-              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontSize: 'clamp(0.7rem, 2vw, 1.125rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.1em',
               fontWeight: '500',
               textShadow: '0 1px 2px rgba(0,0,0,0.2)',
               textAlign: 'left',
-              marginTop: '1rem',
+              marginTop: 'clamp(0.5rem, 1vw, 1rem)',
             }}
           >
             REACH ANYWHERE IN MINUTES
@@ -644,15 +628,15 @@ const Home = () => {
           {/* Learn More Button */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden mt-6"
+            className="group relative inline-flex items-center px-3 xxs:px-4 xs:px-6 sm:px-8 py-2 xxs:py-3 xs:py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs xxs:text-sm overflow-hidden mt-3 xxs:mt-4 xs:mt-6 w-full xxs:w-auto justify-center xxs:justify-start"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             
             {/* Button content */}
             <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
-              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+              <span className="mr-2 xs:mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
+              <ArrowRight size={16} className="xs:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
         </div>
@@ -673,11 +657,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
         {/* Content - Bottom Left */}
-        <div ref={featuresContentRef} className="relative z-10 pb-8 pl-12 lg:pb-16 lg:pl-20 max-w-4xl" style={{ paddingBottom: '2vw', paddingLeft: '5vw' }}>
+        <div ref={featuresContentRef} className="relative z-10 pb-2 pl-2 xxs:pb-4 xxs:pl-4 xs:pb-6 xs:pl-6 sm:pb-8 sm:pl-12 lg:pb-16 lg:pl-20 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-4xl" style={{ paddingBottom: 'clamp(1rem, 2vw, 3rem)', paddingLeft: 'clamp(0.5rem, 4vw, 2rem)' }}>
           <h1 
-            className="font-bold text-white leading-tight text-left uppercase mb-3"
+            className="font-bold text-white leading-tight text-left uppercase mb-2 xxs:mb-3"
             style={{
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              fontSize: 'clamp(1rem, 4.5vw, 2.5rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -690,9 +674,9 @@ const Home = () => {
           
           {/* Sub heading */}
           <p 
-            className="text-white/80 font-medium leading-relaxed text-left mb-6"
+            className="text-white/80 font-medium leading-relaxed text-left mb-4 xxs:mb-6"
             style={{
-              fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
+              fontSize: 'clamp(0.7rem, 2vw, 1.125rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.1em',
               fontWeight: '500',
@@ -744,7 +728,7 @@ const Home = () => {
           <h1 
             className="font-bold text-white leading-tight uppercase mb-6"
             style={{
-              fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+              fontSize: 'clamp(1.125rem, 2.5vw, 2rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -759,7 +743,7 @@ const Home = () => {
           <p 
             className="text-white/90 font-medium leading-relaxed mb-8"
             style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.125rem)',
+              fontSize: 'clamp(0.875rem, 1.4vw, 1.125rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               letterSpacing: '0.02em',
               fontWeight: '500',

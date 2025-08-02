@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useResponsive } from '@/hooks/use-responsive';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const responsive = useResponsive();
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -48,6 +50,11 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const handleNavClick = (path: string) => {
     if (path === '/air-taxi') {
       // If already on air-taxi page, scroll to services section
@@ -84,26 +91,48 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const getNavbarHeight = () => {
+    if (responsive.isVerySmall) return 'h-12';
+    if (responsive.isExtraSmall) return 'h-14';
+    if (responsive.isSmall) return 'h-14';
+    return 'h-14 sm:h-16';
+  };
+
+  const getLogoSize = () => {
+    if (responsive.isVerySmall) return { maxWidth: '80px', height: '20px', maxHeight: '20px' };
+    if (responsive.isExtraSmall) return { maxWidth: '100px', height: '24px', maxHeight: '24px' };
+    if (responsive.isSmall) return { maxWidth: '120px', height: '28px', maxHeight: '28px' };
+    return { 
+      maxWidth: 'clamp(120px, 15vw, 160px)', 
+      height: 'clamp(28px, 4vw, 40px)', 
+      maxHeight: '40px' 
+    };
+  };
+
+  const getPadding = () => {
+    if (responsive.isVerySmall) return 'px-2';
+    if (responsive.isExtraSmall) return 'px-3';
+    if (responsive.isSmall) return 'px-4';
+    return 'px-4 sm:px-6 lg:px-8';
+  };
+
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 transform ${
         visible ? 'translate-y-0' : '-translate-y-full'
       } ${
-        scrolled ? 'lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-none bg-black backdrop-blur-md shadow-xl border-b border-gray-700' : 'bg-transparent backdrop-blur-none'
+        scrolled ? 'lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-none bg-black/90 backdrop-blur-md shadow-xl border-b border-gray-700' : 'bg-transparent backdrop-blur-none'
       }`}>
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 sm:h-16">
+        <div className={`max-w-7xl mx-auto ${getPadding()}`}>
+          <div className={`flex items-center justify-between ${getNavbarHeight()}`}>
             {/* Logo */}
             <div className="flex-shrink-0 py-1 sm:py-2">
               <Link to="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
                 <img 
                   src="/logo.png" 
                   alt="AIRAVATA Logo" 
-                  className="w-auto object-contain max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-none"
-                  style={{
-                    height: 'clamp(20px, 4vw, 40px)',
-                    maxHeight: '32px'
-                  }}
+                  className="w-auto object-contain"
+                  style={getLogoSize()}
                 />
               </Link>
             </div>
@@ -112,10 +141,17 @@ const Navbar = () => {
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-md text-white hover:text-gray-300 transition-colors"
+                className={`rounded-md text-white hover:text-gray-300 transition-colors touch-manipulation ${
+                  responsive.isVerySmall ? 'p-1' : 'p-2'
+                }`}
                 aria-label="Toggle navigation menu"
+                style={{ minHeight: '48px', minWidth: '48px' }}
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? (
+                  <X size={responsive.isVerySmall ? 18 : responsive.isExtraSmall ? 20 : 24} />
+                ) : (
+                  <Menu size={responsive.isVerySmall ? 18 : responsive.isExtraSmall ? 20 : 24} />
+                )}
               </button>
             </div>
             
@@ -126,7 +162,7 @@ const Navbar = () => {
                   <button
                     key={item.path}
                     onClick={() => handleNavClick(item.path)}
-                    className={`px-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-300 border-b-2 ${
+                    className={`px-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-300 border-b-2 hover:scale-105 ${
                       location.pathname === item.path
                         ? 'text-white border-white'
                         : 'text-gray-300 border-transparent hover:text-white hover:border-gray-400'
@@ -144,57 +180,87 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 lg:hidden backdrop-blur-sm"
           onClick={closeMenu}
         />
       )}
 
-      {/* Mobile Slide-in Menu */}
+      {/* Enhanced Mobile Slide-in Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-full xxs:w-72 xs:w-80 bg-black z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        } ${
+          responsive.isVerySmall || responsive.isExtraSmall ? 'w-full' : 
+          responsive.isSmall ? 'w-4/5 max-w-sm' : 
+          'w-80'
+        } bg-black/95 backdrop-blur-md border-l border-gray-700`}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full safe-area-padding">
           {/* Close Button */}
-          <div className="flex justify-end p-4 xxs:p-6">
+          <div className={`flex justify-end items-center ${
+            responsive.isVerySmall ? 'p-3 h-12' : 
+            responsive.isExtraSmall ? 'p-4 h-14' : 
+            'p-4 h-16'
+          }`}>
             <button
               onClick={closeMenu}
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-gray-300 transition-colors touch-manipulation flex items-center justify-center rounded-md"
+              style={{ minHeight: '48px', minWidth: '48px' }}
+              aria-label="Close menu"
             >
-              <X size={20} className="xxs:size-6" />
+              <X size={responsive.isVerySmall ? 18 : responsive.isExtraSmall ? 20 : 24} />
             </button>
           </div>
 
           {/* Menu Items */}
-          <div className="flex-1 flex flex-col justify-start pt-2 xxs:pt-4 px-4 xxs:px-8 space-y-4 xxs:space-y-6">
+          <div className={`flex-1 flex flex-col justify-start ${
+            responsive.isVerySmall ? 'px-4 py-2 space-y-2' : 
+            responsive.isExtraSmall ? 'px-6 py-4 space-y-3' :
+            'px-8 py-6 space-y-4'
+          }`}>
             {navItems.map((item, index) => (
-              <Link
+              <button
                 key={item.path}
-                to={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`text-right py-1 xxs:py-2 border-b border-gray-700 transition-all duration-300 ease-out group transform ${
+                className={`text-right border-b border-gray-700 transition-all duration-300 ease-out group transform touch-manipulation ${
+                  responsive.isVerySmall ? 'py-2' : 
+                  responsive.isExtraSmall ? 'py-3' : 
+                  'py-4'
+                } ${
                   location.pathname === item.path
-                    ? 'text-white border-white'
-                    : 'text-gray-400 hover:text-white hover:border-gray-500'
+                    ? 'text-white border-white bg-white/5'
+                    : 'text-gray-400 hover:text-white hover:border-gray-500 hover:bg-white/5'
                 } ${
                   isMenuOpen 
                     ? 'translate-y-0 opacity-100' 
                     : '-translate-y-8 opacity-0'
-                }`}
+                } rounded-lg`}
                 style={{
                   fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                  fontSize: 'clamp(0.75rem, 3vw, 0.875rem)',
-                  fontWeight: '400',
+                  fontSize: responsive.isVerySmall ? '0.875rem' : 
+                           responsive.isExtraSmall ? '1rem' : 
+                           'clamp(0.875rem, 3vw, 1.125rem)',
+                  fontWeight: '500',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   transitionDelay: isMenuOpen ? `${(index + 1) * 0.1}s` : '0s',
-                  transitionDuration: '0.4s'
+                  transitionDuration: '0.4s',
+                  minHeight: '48px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                  paddingRight: responsive.isVerySmall ? '1rem' : '1.5rem',
+                  paddingLeft: responsive.isVerySmall ? '1rem' : '1.5rem',
                 }}
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
+            
+            {/* Additional spacing for safe area on mobile devices with notches */}
+            {responsive.hasNotch && (
+              <div style={{ height: 'env(safe-area-inset-bottom)' }} />
+            )}
           </div>
         </div>
       </div>

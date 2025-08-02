@@ -209,7 +209,7 @@ const Mission = () => {
           className="text-white mb-6"
           style={{
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontSize: '2rem',
+            fontSize: 'clamp(1.25rem, 3vw, 2rem)',
             fontWeight: '600',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
@@ -222,31 +222,55 @@ const Mission = () => {
         
         <div className="w-32 h-0.5 bg-white mb-8 ml-auto"></div>
         
-        <div 
-          className="text-white/90 leading-relaxed mb-12 space-y-6"
-          style={{
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontSize: '1rem',
-            fontWeight: '400',
-            letterSpacing: '0.02em',
-            textShadow: '0 1px 2px rgba(0,0,0,0.5)',
-            lineHeight: '1.6',
-          }}
-        >
-          <div className="space-y-2">
+        {/* Mobile content (shorter) */}
+        <div className="block sm:hidden">
+          <div 
+            className="text-white/90 leading-relaxed mb-12 space-y-3"
+            style={{
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              fontSize: '0.875rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em',
+              textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+              lineHeight: '1.5',
+            }}
+          >
             <p className="font-semibold">Gridlocked streets. Soaring fuel costs.</p>
             <p>A 20-minute drive takes 90. Deadlines missed.</p>
             <p>Emergencies delayed. Lives at risk.</p>
-          </div>
-          
-          <div className="space-y-2">
             <p>Airports? No better — long lines, security checks, delays.</p>
+            <p className="font-semibold text-red-400">Today's transport is slow, unpredictable, and outdated.</p>
           </div>
-          
-          <div className="space-y-2">
-            <p>Whether it's your daily commute or a critical moment,</p>
-            <p className="font-semibold">Today's transport is slow, unpredictable, and outdated.</p>
-            <p className="text-red-400 font-semibold">It's costing us time, money — and sometimes, lives.</p>
+        </div>
+        
+        {/* Desktop content (original) */}
+        <div className="hidden sm:block">
+          <div 
+            className="text-white/90 leading-relaxed mb-12 space-y-6"
+            style={{
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+              fontSize: '1rem',
+              fontWeight: '400',
+              letterSpacing: '0.02em',
+              textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+              lineHeight: '1.6',
+            }}
+          >
+            <div className="space-y-2">
+              <p className="font-semibold">Gridlocked streets. Soaring fuel costs.</p>
+              <p>A 20-minute drive takes 90. Deadlines missed.</p>
+              <p>Emergencies delayed. Lives at risk.</p>
+            </div>
+            
+            <div className="space-y-2">
+              <p>Airports? No better — long lines, security checks, delays.</p>
+            </div>
+            
+            <div className="space-y-2">
+              <p>Whether it's your daily commute or a critical moment,</p>
+              <p className="font-semibold">Today's transport is slow, unpredictable, and outdated.</p>
+              <p className="text-red-400 font-semibold">It's costing us time, money — and sometimes, lives.</p>
+            </div>
           </div>
         </div>
         

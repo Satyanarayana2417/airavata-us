@@ -519,12 +519,25 @@ const Home = () => {
         {/* Subtle overlay for text readability */}
         <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
         
-        {/* Hero Two-Line Uppercase Text - Bottom-Left Position */}
-        <div ref={heroContentRef} className="relative z-10 pb-1 pl-1 xxs:pb-2 xxs:pl-2 xs:pb-4 xs:pl-4 sm:pb-6 sm:pl-8 lg:pb-12 lg:pl-16 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-3xl" style={{ paddingBottom: 'clamp(0.5rem, 1.5vw, 2rem)', paddingLeft: 'clamp(0.25rem, 3vw, 1.5rem)' }}>
+        {/* Hero Two-Line Uppercase Text - Top Center on Mobile, Bottom-Left on Desktop */}
+        <div ref={heroContentRef} className="relative z-10 pb-1 pl-1 xxs:pb-2 xxs:pl-2 xs:pb-4 xs:pl-4 sm:pb-6 sm:pl-8 lg:pb-12 lg:pl-16 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-3xl flex flex-col items-center sm:items-start justify-start pt-20 sm:justify-end sm:pt-0 min-h-screen sm:min-h-0" style={{ paddingBottom: 'clamp(0.5rem, 1.5vw, 2rem)', paddingLeft: 'clamp(0.25rem, 3vw, 1.5rem)' }}>
+          
+          {/* AIRAVATA Logo - Only visible on mobile screens */}
+          <div className="block sm:hidden mb-12 mt-8 flex justify-center items-center ml-18">
+            <img 
+              src="/logo-removebg-preview.png" 
+              alt="AIRAVATA Logo" 
+              className="w-60 h-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))'
+              }}
+            />
+          </div>
+
           <h1 
-            className="font-bold text-white leading-tight text-left uppercase mb-2 xxs:mb-3"
+            className="hidden sm:block font-bold text-white leading-tight text-center sm:text-left uppercase mb-2 xxs:mb-3"
             style={{
-              fontSize: 'clamp(0.9rem, 3.8vw, 2.2rem)',
+              fontSize: 'clamp(1.5rem, 6vw, 2.2rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
               color: '#ffffff',
               letterSpacing: '0.05em',
@@ -532,12 +545,12 @@ const Home = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.3)',
             }}
           >
-            OPTIMIZING TRAVEL,  <br /> SAVING YOUR TIME
+            OPTIMIZING TRAVEL  <br /> SAVING YOUR TIME
           </h1>
           
           {/* Sub heading */}
           <p 
-            className="text-white/80 font-medium leading-relaxed text-left mb-4 xs:mb-6"
+            className="text-white/80 font-medium leading-relaxed text-center sm:text-left mb-4 xs:mb-6"
             style={{
               fontSize: 'clamp(0.65rem, 1.3vw, 1rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -549,10 +562,10 @@ const Home = () => {
             SMARTER. SAFER. FASTER.
           </p>
           
-          {/* Learn More Button */}
+          {/* Learn More Button - Hidden on mobile */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="hidden sm:inline-flex group relative items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
@@ -628,15 +641,15 @@ const Home = () => {
           {/* Learn More Button */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-3 xxs:px-4 xs:px-6 sm:px-8 py-2 xxs:py-3 xs:py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs xxs:text-sm overflow-hidden mt-3 xxs:mt-4 xs:mt-6 w-full xxs:w-auto justify-center xxs:justify-start"
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             
             {/* Button content */}
             <div className="relative z-10 flex items-center">
-              <span className="mr-2 xs:mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
-              <ArrowRight size={16} className="xs:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">Learn More</span>
+              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
         </div>
@@ -693,7 +706,7 @@ const Home = () => {
                 behavior: 'smooth' 
               });
             }}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-ddin font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
@@ -757,7 +770,7 @@ const Home = () => {
           {/* Learn More Button */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
@@ -785,7 +798,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 pointer-events-none"></div>
         
         {/* Content - Right Bottom */}
-        <div ref={futureVisionContentRef} className="relative z-10 pb-16 pr-16 max-w-lg text-right" style={{ paddingBottom: '3vw', paddingRight: '6vw' }}>
+        <div ref={futureVisionContentRef} className="relative z-10 pb-8 md:pb-16 pr-8 md:pr-16 max-w-lg text-right" style={{ paddingBottom: 'clamp(1rem, 3vw, 3rem)', paddingRight: 'clamp(2rem, 6vw, 6rem)' }}>
           <h2 
             className="font-bold text-white leading-tight uppercase mb-8"
             style={{
@@ -813,14 +826,21 @@ const Home = () => {
               lineHeight: '1.6',
             }}
           >
-            EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVATA'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
-            BYPASS TRAFFIC, REDUCE TRAVEL TIME, AND ELEVATE YOUR JOURNEY TO NEW HEIGHTS.
+            {/* Mobile text (shorter) */}
+            <span className="block sm:hidden">
+              AIRAVATA AIR TAXIS — FASTER, SMARTER TRAVEL.
+            </span>
+            {/* Desktop text (longer) */}
+            <span className="hidden sm:block">
+              EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVATA'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
+              BYPASS TRAFFIC, REDUCE TRAVEL TIME, AND ELEVATE YOUR JOURNEY TO NEW HEIGHTS.
+            </span>
           </p>
           
           {/* Discover More Button */}
           <button 
             onClick={() => navigate('/about')}
-            className="group relative inline-flex items-center px-10 py-5 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase overflow-hidden"
+            className="group relative inline-flex items-center px-10 py-5 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase overflow-hidden rounded-none"
             style={{
               fontSize: 'clamp(0.75rem, 1vw, 0.875rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -856,19 +876,39 @@ const Home = () => {
         
         {/* Header Section */}
         <div ref={aboutHeaderRef} className="absolute top-20 left-8 z-10 max-w-md">
-          <h1 className="text-white text-4xl font-bold mb-2">
+          <h1 className="text-white font-bold mb-2" style={{
+            fontSize: 'clamp(1.5rem, 4vw, 4rem)',
+          }}>
             MEET AIRAVATA
           </h1>
           <div className="w-24 h-0.5 bg-white mb-4"></div>
-          <p className="text-white text-base uppercase leading-relaxed mb-6">
-            WE ARE A VISIONARY TEAM OF AVIATION EXPERTS AND TECHNOLOGY INNOVATORS UNITED BY A COMMON GOAL: REVOLUTIONIZING URBAN MOBILITY THROUGH THE SKIES.
-          </p>
-          <p className="text-white text-base uppercase leading-relaxed mb-8">
-            TODAY, WE'RE PIONEERING THE DEVELOPMENT OF LUXURIOUS, MEDICALLY-EQUIPPED AIR TAXIS THAT WILL TRANSFORM HOW PEOPLE MOVE THROUGH CITIES, STARTING WITH EMERGENCY MEDICAL TRANSPORT AND EXPANDING TO EXECUTIVE TRAVEL SOLUTIONS.
-          </p>
+          
+          {/* Mobile text (shorter) */}
+          <div className="block sm:hidden">
+            <p className="text-white uppercase leading-relaxed mb-4" style={{
+              fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+            }}>
+              We're a visionary team reimagining urban mobility.
+            </p>
+            <p className="text-white uppercase leading-relaxed mb-6" style={{
+              fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+            }}>
+              Starting with medical air taxis, we're building luxurious, high-tech aerial travel for tomorrow's cities.
+            </p>
+          </div>
+          
+          {/* Desktop text (original) */}
+          <div className="hidden sm:block">
+            <p className="text-white text-base uppercase leading-relaxed mb-6">
+              WE ARE A VISIONARY TEAM OF AVIATION EXPERTS AND TECHNOLOGY INNOVATORS UNITED BY A COMMON GOAL: REVOLUTIONIZING URBAN MOBILITY THROUGH THE SKIES.
+            </p>
+            <p className="text-white text-base uppercase leading-relaxed mb-8">
+              TODAY, WE'RE PIONEERING THE DEVELOPMENT OF LUXURIOUS, MEDICALLY-EQUIPPED AIR TAXIS THAT WILL TRANSFORM HOW PEOPLE MOVE THROUGH CITIES, STARTING WITH EMERGENCY MEDICAL TRANSPORT AND EXPANDING TO EXECUTIVE TRAVEL SOLUTIONS.
+            </p>
+          </div>
           
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 hero-cta-container -ml-10 sm:ml-0">
             {/* Connect With Us Button */}
             <button 
               onClick={() => {
@@ -876,12 +916,12 @@ const Home = () => {
                   behavior: 'smooth' 
                 });
               }}
-              className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+              className="group relative inline-flex items-center w-auto px-2 py-1 sm:px-4 sm:py-2 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs overflow-hidden rounded-none hero-cta-button"
             >
               <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
               <div className="relative z-10 flex items-center">
-                <span className="mr-3 group-hover:text-black transition-colors duration-500">Connect With Us</span>
-                <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                <span className="mr-0.5 sm:mr-2 group-hover:text-black transition-colors duration-500 text-xs sm:text-xs">Connect With Us</span>
+                <ArrowRight size={8} className="sm:size-[14px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
               </div>
             </button>
 
@@ -892,12 +932,12 @@ const Home = () => {
                   behavior: 'smooth' 
                 });
               }}
-              className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+              className="group relative inline-flex items-center w-auto px-2 py-1 sm:px-4 sm:py-2 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs overflow-hidden rounded-none hero-cta-button"
             >
               <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
               <div className="relative z-10 flex items-center">
-                <span className="mr-3 group-hover:text-black transition-colors duration-500">Explore</span>
-                <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                <span className="mr-0.5 sm:mr-2 group-hover:text-black transition-colors duration-500 text-xs sm:text-xs">Explore</span>
+                <ArrowRight size={8} className="sm:size-[14px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
               </div>
             </button>
           </div>
@@ -909,7 +949,7 @@ const Home = () => {
         id="team"
         className="relative min-h-screen bg-black"
       >
-        <div ref={teamSectionRef} className="h-screen bg-black relative overflow-hidden flex items-center justify-center">
+        <div ref={teamSectionRef} className="h-screen bg-black relative overflow-hidden flex items-center justify-center py-4 md:py-0">
           <div className="text-center max-w-6xl mx-auto px-8">
             {/* Section Title */}
             <h2 className="team-title text-white text-4xl font-bold mb-4 uppercase tracking-wider">
@@ -919,11 +959,11 @@ const Home = () => {
             <div className="team-line w-32 h-0.5 bg-white mx-auto mb-16"></div>
             
             {/* Team Circles */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-20">
+            <div className="flex overflow-x-auto gap-8 md:gap-20 px-4 md:px-0 pb-4 md:pb-0 scrollbar-hide md:justify-center md:overflow-visible">
               
               {/* Team Member 1 */}
-              <div className="team-circle group relative cursor-pointer">
-                <div className="relative w-80 h-80 mx-auto">
+              <div className="team-circle group relative cursor-pointer flex-shrink-0">
+                <div className="relative w-48 h-48 md:w-80 md:h-80">
                   <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                     <img 
                       src="https://i.ibb.co/9kwsNb2T/Picsart-25-07-19-14-38-59-479.webp" 
@@ -931,14 +971,14 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                         SARAH JOHNSON
                       </h3>
-                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                         CEO & Founder
                       </p>
-                      <p className="text-white/90 text-sm leading-relaxed">
+                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                         Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
                       </p>
                     </div>
@@ -948,8 +988,8 @@ const Home = () => {
               </div>
 
               {/* Team Member 2 */}
-              <div className="team-circle group relative cursor-pointer">
-                <div className="relative w-80 h-80 mx-auto">
+              <div className="team-circle group relative cursor-pointer flex-shrink-0">
+                <div className="relative w-48 h-48 md:w-80 md:h-80">
                   <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                     <img 
                       src="https://i.ibb.co/przf8JGs/Picsart-25-07-19-14-37-42-098.webp" 
@@ -957,14 +997,14 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                         MICHAEL CHEN
                       </h3>
-                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                         CTO & Co-Founder
                       </p>
-                      <p className="text-white/90 text-sm leading-relaxed">
+                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                         Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
                       </p>
                     </div>
@@ -974,8 +1014,8 @@ const Home = () => {
               </div>
 
               {/* Team Member 3 */}
-              <div className="team-circle group relative cursor-pointer">
-                <div className="relative w-80 h-80 mx-auto">
+              <div className="team-circle group relative cursor-pointer flex-shrink-0">
+                <div className="relative w-48 h-48 md:w-80 md:h-80">
                   <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                     <img 
                       src="https://i.ibb.co/przf8JGs/Picsart-25-07-19-14-37-42-098.webp" 
@@ -983,14 +1023,14 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                         DR. LISA RODRIGUEZ
                       </h3>
-                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                         Chief Medical Officer
                       </p>
-                      <p className="text-white/90 text-sm leading-relaxed">
+                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                         Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
                       </p>
                     </div>
@@ -1007,9 +1047,9 @@ const Home = () => {
       {/* ABOUT SECTION - What We Believe */}
       <section 
         id="beliefs"
-        className="relative min-h-screen bg-black py-16 px-4"
+        className="relative min-h-screen bg-black py-8 md:py-16 px-4"
       >
-        <div ref={believeRef} className="min-h-screen bg-black py-16 px-4">
+        <div ref={believeRef} className="min-h-screen bg-black py-8 md:py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="believe-title text-white text-4xl font-bold mb-4 uppercase tracking-wider">
@@ -1134,7 +1174,7 @@ const Home = () => {
                 lineHeight: '1.2',
               }}
             >
-              Solving Urban Congestion<br />from the Sky
+              
             </h1>
             
             <p 
@@ -1149,24 +1189,24 @@ const Home = () => {
                 textTransform: 'uppercase',
               }}
             >
-            Our mission is to unlock the third dimension of transportation, creating a smart, sustainable, and accessible aerial mobility ecosystem. We aim to empower cities, enhance connectivity, and deliver a future where mobility is cleaner, faster, and frictionless.
+            Our mission is to unlock smarter, cleaner, and faster mobility through the skies.
               <br /><br />
-             By embracing the skies, AIRAVATA revolutionizes mobility through advanced vertical takeoff and landing (VTOL) air taxis that dramatically reduce travel time—transforming hours into minutes. Designed for urban commutes, critical medical emergencies, and executive travel, AIRAVATA ensures that time, safety, and efficiency are no longer compromised by traffic or terrain
+             AIRAVATA's VTOL air taxis turn hours into minutes — for city travel, emergencies, and executive transport — cutting through traffic with safety and speed.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-8">
               <button 
                 onClick={() => {
                   document.getElementById('air-taxi')?.scrollIntoView({ 
                     behavior: 'smooth' 
                   });
                 }}
-                className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+                className="group relative inline-flex items-center px-2 py-1 sm:px-8 sm:py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs sm:text-sm overflow-hidden rounded-none"
               >
                 <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
                 <div className="relative z-10 flex items-center">
-                  <span className="mr-3 group-hover:text-black transition-colors duration-500">Explore Air Taxi</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                  <span className="mr-1 sm:mr-3 group-hover:text-black transition-colors duration-500">Explore Air Taxi</span>
+                  <ArrowRight size={10} className="sm:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
                 </div>
               </button>
 
@@ -1176,12 +1216,12 @@ const Home = () => {
                     behavior: 'smooth' 
                   });
                 }}
-                className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+                className="group relative inline-flex items-center px-2 py-1 sm:px-8 sm:py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs sm:text-sm overflow-hidden rounded-none"
               >
                 <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
                 <div className="relative z-10 flex items-center">
-                  <span className="mr-3 group-hover:text-black transition-colors duration-500">Our Future Vision</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+                  <span className="mr-1 sm:mr-3 group-hover:text-black transition-colors duration-500">Our Future Vision</span>
+                  <ArrowRight size={10} className="sm:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
                 </div>
               </button>
             </div>
@@ -1194,42 +1234,42 @@ const Home = () => {
         id="comparison"
         className="relative min-h-screen bg-black"
       >
-        <div ref={comparisonRef} className="w-full h-screen bg-black flex items-center justify-center p-8">
-          <div className="flex max-w-4xl w-full mx-auto overflow-hidden">
+        <div ref={comparisonRef} className="w-full h-screen bg-black flex items-center justify-center p-4 sm:p-8">
+          <div className="flex flex-col sm:flex-row max-w-4xl w-full mx-auto overflow-hidden gap-4 sm:gap-0">
             
-            <div className="before-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+            <div className="before-box bg-black border-2 border-white/30 h-60 sm:h-80 flex-1 flex flex-col items-center justify-center p-4 sm:p-8 space-y-2 sm:space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
               
-              <div className="relative z-10 flex flex-col items-center space-y-4 transform group-hover:scale-105 transition-transform duration-500">
-                <h2 className="text-white text-xl font-semibold tracking-wider uppercase group-hover:text-black transition-colors duration-700">
+              <div className="relative z-10 flex flex-col items-center space-y-2 sm:space-y-4 transform group-hover:scale-105 transition-transform duration-500">
+                <h2 className="text-white text-lg sm:text-xl font-semibold tracking-wider uppercase group-hover:text-black transition-colors duration-700">
                   Before
                 </h2>
-                <p className="text-gray-300 text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
                   Ground transportation stuck in traffic
                 </p>
-                <div className="text-gray-500 text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
+                <div className="text-gray-500 text-3xl sm:text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
                   2+ Hours
                 </div>
-                <p className="text-gray-400 text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
+                <p className="text-gray-400 text-xs sm:text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
                   Traditional Transport
                 </p>
               </div>
             </div>
 
-            <div className="after-box bg-black border-2 border-white/30 h-80 flex-1 flex flex-col items-center justify-center p-8 space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
+            <div className="after-box bg-black border-2 border-white/30 h-60 sm:h-80 flex-1 flex flex-col items-center justify-center p-4 sm:p-8 space-y-2 sm:space-y-4 transform transition-all duration-700 ease-in-out hover:flex-[1.5] hover:-translate-x-2 hover:shadow-2xl hover:border-white cursor-pointer relative overflow-hidden group">
               <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"></div>
               
-              <div className="relative z-10 flex flex-col items-center space-y-4 transform group-hover:scale-105 transition-transform duration-500">
-                <h2 className="text-white text-xl font-semibold tracking-wider uppercase group-hover:text-black transition-colors duration-700">
+              <div className="relative z-10 flex flex-col items-center space-y-2 sm:space-y-4 transform group-hover:scale-105 transition-transform duration-500">
+                <h2 className="text-white text-lg sm:text-xl font-semibold tracking-wider uppercase group-hover:text-black transition-colors duration-700">
                   After
                 </h2>
-                <p className="text-gray-300 text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
                   AIRAVATA air taxi flying directly to destination
                 </p>
-                <div className="text-white text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
+                <div className="text-white text-3xl sm:text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
                   15 Minutes
                 </div>
-                <p className="text-gray-400 text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
+                <p className="text-gray-400 text-xs sm:text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
                   AIRAVATA Solution
                 </p>
               </div>
@@ -1444,7 +1484,7 @@ const Home = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative overflow-hidden bg-transparent border-2 border-white text-white font-semibold py-2 px-8 rounded-md transition-all duration-300 disabled:opacity-50 h-10 hover:text-black group"
+                  className="relative overflow-hidden bg-transparent border-2 border-white text-white font-semibold py-2 px-8 transition-all duration-300 disabled:opacity-50 h-10 hover:text-black group rounded-none"
                 >
                   <span className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
                   <span className="relative z-10 flex items-center justify-center">

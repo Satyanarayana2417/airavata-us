@@ -207,11 +207,11 @@ const About = () => {
           <div className="team-line w-32 h-0.5 bg-white mx-auto mb-16"></div>
           
           {/* Team Circles */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-20">
+          <div className="flex overflow-x-auto gap-8 md:gap-20 px-4 md:px-0 pb-4 md:pb-0 scrollbar-hide md:justify-center md:overflow-visible">
             
             {/* Team Member 1 */}
-            <div className="team-circle group relative cursor-pointer">
-              <div className="relative w-80 h-80 mx-auto">
+            <div className="team-circle group relative cursor-pointer flex-shrink-0">
+              <div className="relative w-48 h-48 md:w-80 md:h-80 mx-auto">
                 {/* Circle with border animation */}
                 <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                   <img 
@@ -221,14 +221,14 @@ const About = () => {
                   />
                   
                   {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                       SARAH JOHNSON
                     </h3>
-                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                       CEO & Founder
                     </p>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
                     </p>
                   </div>
@@ -239,8 +239,8 @@ const About = () => {
             </div>
 
             {/* Team Member 2 */}
-            <div className="team-circle group relative cursor-pointer">
-              <div className="relative w-80 h-80 mx-auto">
+            <div className="team-circle group relative cursor-pointer flex-shrink-0">
+              <div className="relative w-48 h-48 md:w-80 md:h-80 mx-auto">
                 {/* Circle with border animation */}
                 <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                   <img 
@@ -250,14 +250,14 @@ const About = () => {
                   />
                   
                   {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                       MICHAEL CHEN
                     </h3>
-                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                       CTO & Co-Founder
                     </p>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
                     </p>
                   </div>
@@ -268,8 +268,8 @@ const About = () => {
             </div>
 
             {/* Team Member 3 */}
-            <div className="team-circle group relative cursor-pointer">
-              <div className="relative w-80 h-80 mx-auto">
+            <div className="team-circle group relative cursor-pointer flex-shrink-0">
+              <div className="relative w-48 h-48 md:w-80 md:h-80 mx-auto">
                 {/* Circle with border animation */}
                 <div className="w-full h-full rounded-full border-2 border-white/30 overflow-hidden transition-all duration-500 group-hover:border-white group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:scale-105 relative">
                   <img 
@@ -279,14 +279,14 @@ const About = () => {
                   />
                   
                   {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
-                    <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
+                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
                       DR. LISA RODRIGUEZ
                     </h3>
-                    <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
+                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
                       Chief Medical Officer
                     </p>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
                     </p>
                   </div>

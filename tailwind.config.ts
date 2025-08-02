@@ -13,24 +13,72 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				'xxs': '0.5rem',
+				'xs': '0.75rem',
+				'sm': '1rem',
+				'md': '1.5rem',
+				'lg': '2rem',
+				'xl': '2.5rem',
+				'2xl': '3rem',
+			},
 			screens: {
+				'xxs': '100%',
+				'xs': '100%',
+				'sm': '640px',
+				'md': '768px',
+				'lg': '1024px',
+				'xl': '1280px',
 				'2xl': '1400px'
 			}
 		},
 		screens: {
-			'xxs': '320px',  // Very small devices
-			'xs': '375px',   // Small devices 
-			'sm': '640px',   // Tablets
-			'md': '768px',   // Desktop
-			'lg': '1024px',  // Large desktop
-			'xl': '1280px',  // Extra large
-			'2xl': '1536px', // 2X Extra large
+			'xxs': '320px',  // Very small devices (iPhone SE, etc.)
+			'xs': '375px',   // Small devices (iPhone 12 mini, etc.)
+			'sm': '640px',   // Large phones / small tablets
+			'md': '768px',   // Tablets
+			'lg': '1024px',  // Small desktop
+			'xl': '1280px',  // Desktop
+			'2xl': '1536px', // Large desktop
+			'3xl': '1920px', // Ultra-wide screens
 		},
 		extend: {
 			fontFamily: {
 				'ddin': ['D-DIN', 'Arial', 'Verdana', 'sans-serif'],
 				'system': ['Arial', 'Verdana', 'sans-serif'],
+			},
+			fontSize: {
+				'xxs': ['0.65rem', { lineHeight: '1' }],
+				'2xs': ['0.7rem', { lineHeight: '1.1' }],
+				'xs': ['0.75rem', { lineHeight: '1.2' }],
+				'sm': ['0.875rem', { lineHeight: '1.3' }],
+				'base': ['1rem', { lineHeight: '1.4' }],
+				'lg': ['1.125rem', { lineHeight: '1.5' }],
+				'xl': ['1.25rem', { lineHeight: '1.5' }],
+				'2xl': ['1.5rem', { lineHeight: '1.4' }],
+				'3xl': ['1.875rem', { lineHeight: '1.3' }],
+				'4xl': ['2.25rem', { lineHeight: '1.2' }],
+				'5xl': ['3rem', { lineHeight: '1.1' }],
+				'6xl': ['3.75rem', { lineHeight: '1' }],
+				'7xl': ['4.5rem', { lineHeight: '1' }],
+				'8xl': ['6rem', { lineHeight: '1' }],
+				'9xl': ['8rem', { lineHeight: '1' }],
+			},
+			spacing: {
+				'xxs': '0.25rem',
+				'xs': '0.5rem',
+				'18': '4.5rem',
+				'22': '5.5rem',
+				'88': '22rem',
+				'92': '23rem',
+				'96': '24rem',
+				'100': '25rem',
+				'104': '26rem',
+				'108': '27rem',
+				'112': '28rem',
+				'116': '29rem',
+				'120': '30rem',
 			},
 			colors: {
 				border: 'hsl(var(--border))',

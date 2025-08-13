@@ -407,23 +407,45 @@ const Home = () => {
           }
         });
 
-        const content = item.querySelector('.timeline-content');
-        const isEven = index % 2 === 0;
-        
-        gsap.fromTo(content, {
-          x: isEven ? -50 : 50,
-          opacity: 0,
-        }, {
-          x: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
-        });
+        // Mobile animation
+        const mobileContent = item.querySelector('.block.md\\:hidden .timeline-content');
+        if (mobileContent) {
+          gsap.fromTo(mobileContent, {
+            x: 30,
+            opacity: 0,
+          }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+
+        // Desktop animation
+        const desktopContent = item.querySelector('.hidden.md\\:flex .timeline-content');
+        if (desktopContent) {
+          const isEven = index % 2 === 0;
+          
+          gsap.fromTo(desktopContent, {
+            x: isEven ? -50 : 50,
+            opacity: 0,
+          }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
       });
     }
 
@@ -523,15 +545,28 @@ const Home = () => {
         <div ref={heroContentRef} className="relative z-10 pb-1 pl-1 xxs:pb-2 xxs:pl-2 xs:pb-4 xs:pl-4 sm:pb-6 sm:pl-8 lg:pb-12 lg:pl-16 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-3xl flex flex-col items-center sm:items-start justify-start pt-20 sm:justify-end sm:pt-0 min-h-screen sm:min-h-0" style={{ paddingBottom: 'clamp(0.5rem, 1.5vw, 2rem)', paddingLeft: 'clamp(0.25rem, 3vw, 1.5rem)' }}>
           
           {/* AIRAVATA Logo - Only visible on mobile screens */}
-          <div className="block sm:hidden mb-12 mt-8 flex justify-center items-center ml-18">
+          <div className="block sm:hidden mb-12 mt-8 flex flex-col justify-start items-start ml-11 pl-2">
             <img 
               src="/logo-removebg-preview.png" 
               alt="AIRAVATA Logo" 
-              className="w-60 h-auto object-contain"
+              className="w-60 h-auto object-contain mb-4"
               style={{
                 filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))'
               }}
             />
+            {/* "Smarter safer faster" text directly under logo for mobile */}
+            <p 
+              className="text-white/80 font-medium leading-relaxed text-left ml-8"
+              style={{
+                fontSize: 'clamp(0.65rem, 1.3vw, 1rem)',
+                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                letterSpacing: '0.1em',
+                fontWeight: '500',
+                textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+              }}
+            >
+              SMARTER. SAFER. FASTER.
+            </p>
           </div>
 
           <h1 
@@ -548,9 +583,9 @@ const Home = () => {
             OPTIMIZING TRAVEL  <br /> SAVING YOUR TIME
           </h1>
           
-          {/* Sub heading */}
+          {/* Sub heading - Hidden on mobile (moved under logo for mobile) */}
           <p 
-            className="text-white/80 font-medium leading-relaxed text-center sm:text-left mb-4 xs:mb-6"
+            className="hidden sm:block text-white/80 font-medium leading-relaxed text-center sm:text-left mb-4 xs:mb-6"
             style={{
               fontSize: 'clamp(0.65rem, 1.3vw, 1rem)',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -971,19 +1006,37 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
+                    {/* Mobile - Description only overlay */}
+                    <div className="md:hidden absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 text-center">
+                      <p className="text-white/90 text-xs leading-relaxed">
+                        Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
+                      </p>
+                    </div>
+                    
+                    {/* Desktop - Full overlay with name, role, and description */}
+                    <div className="hidden md:flex absolute inset-0 bg-black/70 rounded-full flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
                         SARAH JOHNSON
                       </h3>
-                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
                         CEO & Founder
                       </p>
-                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
+                      <p className="text-white/90 text-sm leading-relaxed">
                         Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
                       </p>
                     </div>
                   </div>
                   <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+                </div>
+                
+                {/* Mobile - Name and Role under the circle */}
+                <div className="mt-4 text-center md:hidden">
+                  <h3 className="text-white text-lg font-bold mb-1 uppercase tracking-wide">
+                    SARAH JOHNSON
+                  </h3>
+                  <p className="text-white/80 text-sm uppercase tracking-wider font-semibold">
+                    CEO & FOUNDER
+                  </p>
                 </div>
               </div>
 
@@ -997,19 +1050,37 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
+                    {/* Mobile - Description only overlay */}
+                    <div className="md:hidden absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 text-center">
+                      <p className="text-white/90 text-xs leading-relaxed">
+                        Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
+                      </p>
+                    </div>
+                    
+                    {/* Desktop - Full overlay with name, role, and description */}
+                    <div className="hidden md:flex absolute inset-0 bg-black/70 rounded-full flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
                         MICHAEL CHEN
                       </h3>
-                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
                         CTO & Co-Founder
                       </p>
-                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
+                      <p className="text-white/90 text-sm leading-relaxed">
                         Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
                       </p>
                     </div>
                   </div>
                   <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+                </div>
+                
+                {/* Mobile - Name and Role under the circle */}
+                <div className="mt-4 text-center md:hidden">
+                  <h3 className="text-white text-lg font-bold mb-1 uppercase tracking-wide">
+                    MICHAEL CHEN
+                  </h3>
+                  <p className="text-white/80 text-sm uppercase tracking-wider font-semibold">
+                    CTO & CO-FOUNDER
+                  </p>
                 </div>
               </div>
 
@@ -1023,19 +1094,37 @@ const Home = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
-                    <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                      <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
+                    {/* Mobile - Description only overlay */}
+                    <div className="md:hidden absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 text-center">
+                      <p className="text-white/90 text-xs leading-relaxed">
+                        Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
+                      </p>
+                    </div>
+                    
+                    {/* Desktop - Full overlay with name, role, and description */}
+                    <div className="hidden md:flex absolute inset-0 bg-black/70 rounded-full flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-8 text-center">
+                      <h3 className="text-white text-2xl font-bold mb-3 uppercase tracking-wide">
                         DR. LISA RODRIGUEZ
                       </h3>
-                      <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
+                      <p className="text-white/80 text-sm mb-4 uppercase tracking-wider font-semibold">
                         Chief Medical Officer
                       </p>
-                      <p className="text-white/90 text-xs md:text-sm leading-relaxed">
+                      <p className="text-white/90 text-sm leading-relaxed">
                         Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
                       </p>
                     </div>
                   </div>
                   <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+                </div>
+                
+                {/* Mobile - Name and Role under the circle */}
+                <div className="mt-4 text-center md:hidden">
+                  <h3 className="text-white text-lg font-bold mb-1 uppercase tracking-wide">
+                    DR. LISA RODRIGUEZ
+                  </h3>
+                  <p className="text-white/80 text-sm uppercase tracking-wider font-semibold">
+                    CHIEF MEDICAL OFFICER
+                  </p>
                 </div>
               </div>
 
@@ -1294,112 +1383,281 @@ const Home = () => {
 
           {/* Timeline Container */}
           <div ref={objectivesRef} className="relative">
-            {/* Central Timeline Line */}
-            <div className="timeline-line absolute left-1/2 transform -translate-x-1/2 w-1 bg-white h-full"></div>
+            {/* Central Timeline Line - Desktop centered, Mobile left-aligned */}
+            <div className="timeline-line absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-white to-white/30 rounded-full h-full"></div>
 
             {/* Timeline Items */}
-            <div className="space-y-20">
+            <div className="space-y-16 md:space-y-20">
               
               {/* 2025 - Product Development */}
               <div className="timeline-item relative flex items-center">
-                <div className="w-1/2 pr-8 text-right">
-                  <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
-                    <div className="flex items-center justify-end mb-3">
-                      <Calendar className="text-white mr-2" size={20} />
-                      <span className="text-white font-bold text-xl">2025</span>
+                {/* Mobile Layout */}
+                <div className="block md:hidden w-full">
+                  {/* Timeline dot */}
+                  <div className="timeline-dot absolute left-8 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-black z-10"></div>
+                  
+                  {/* Content */}
+                  <div className="ml-16 pl-4">
+                    <div className="timeline-content bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/40 rounded-lg flex items-center justify-center mr-3 group-hover:from-white/40 group-hover:to-white/60 group-hover:scale-110 transition-all duration-300">
+                          <Calendar className="text-white" size={20} />
+                        </div>
+                        <div className="text-2xl font-bold text-white">2027</div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-2 uppercase tracking-wide">
+                        Pilot Program & Acquisition
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">
+                        2 cities, emergency medical transport priority
+                      </p>
+                      <ul className="space-y-1">
+                        
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                         Launch pilot operations in Andhra Pradesh & Telangana
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Acquire and deploy initial AirTaxi fleet
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                         
+                          Partner with hospitals and vertiports
+                        </li>
+                      </ul>
                     </div>
-                    <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
-                      Product Development & Testing
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Complete prototype development and extensive safety testing of our first-generation air taxi. Achieve regulatory approvals and conduct pilot programs.
-                    </p>
                   </div>
                 </div>
-                
-                <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
-                
-                <div className="w-1/2 pl-8">
-                  <div className="text-white/60">
-                    <Plane size={40} />
+
+                {/* Desktop Layout */}
+                <div className="hidden md:flex items-center w-full">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
+                      <div className="flex items-center justify-end mb-3">
+                        <Calendar className="text-white mr-2" size={20} />
+                        <span className="text-white font-bold text-xl">2025</span>
+                      </div>
+                      <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+                        Product Development & Testing
+                      </h3>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        Complete prototype development and extensive safety testing of our first-generation air taxi. Achieve regulatory approvals and conduct pilot programs.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
+                  
+                  <div className="w-1/2 pl-8">
+                    <div className="text-white/60">
+                      <Plane size={40} />
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* 2026 - Urban Deployment */}
               <div className="timeline-item relative flex items-center">
-                <div className="w-1/2 pr-8 text-right">
-                  <div className="text-white/60">
-                    <Building size={40} />
+                {/* Mobile Layout */}
+                <div className="block md:hidden w-full">
+                  {/* Timeline dot */}
+                  <div className="timeline-dot absolute left-8 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-black z-10"></div>
+                  
+                  {/* Content */}
+                  <div className="ml-16 pl-4">
+                    <div className="timeline-content bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/40 rounded-lg flex items-center justify-center mr-3 group-hover:from-white/40 group-hover:to-white/60 group-hover:scale-110 transition-all duration-300">
+                          <MapPin className="text-white" size={20} />
+                        </div>
+                        <div className="text-2xl font-bold text-white">2027</div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-2 uppercase tracking-wide">
+                        Service Launch
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">
+                        Andhra Pradesh & Telangana — full commercial AirTaxi operations begin.
+                      </p>
+                      <ul className="space-y-1">
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Emergency medical and premium travel routes
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Integration with vertiport network
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          24/7 service availability
+                        </li>
+                        
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
-                
-                <div className="w-1/2 pl-8">
-                  <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
-                    <div className="flex items-center mb-3">
-                      <Calendar className="text-white mr-2" size={20} />
-                      <span className="text-white font-bold text-xl">2026</span>
+
+                {/* Desktop Layout */}
+                <div className="hidden md:flex items-center w-full">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="text-white/60">
+                      <Building size={40} />
                     </div>
-                    <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
-                      Urban Deployment Phase
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Launch commercial operations in major metropolitan areas. Establish vertiports and build partnerships with hospitals and emergency services.
-                    </p>
+                  </div>
+                  
+                  <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
+                  
+                  <div className="w-1/2 pl-8">
+                    <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
+                      <div className="flex items-center mb-3">
+                        <Calendar className="text-white mr-2" size={20} />
+                        <span className="text-white font-bold text-xl">2026</span>
+                      </div>
+                      <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+                        Urban Deployment Phase
+                      </h3>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        Launch commercial operations in major metropolitan areas. Establish vertiports and build partnerships with hospitals and emergency services.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* 2027 - Network Expansion */}
               <div className="timeline-item relative flex items-center">
-                <div className="w-1/2 pr-8 text-right">
-                  <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
-                    <div className="flex items-center justify-end mb-3">
-                      <Calendar className="text-white mr-2" size={20} />
-                      <span className="text-white font-bold text-xl">2027</span>
+                {/* Mobile Layout */}
+                <div className="block md:hidden w-full">
+                  {/* Timeline dot */}
+                  <div className="timeline-dot absolute left-8 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-black z-10"></div>
+                  
+                  {/* Content */}
+                  <div className="ml-16 pl-4">
+                    <div className="timeline-content bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/40 rounded-lg flex items-center justify-center mr-3 group-hover:from-white/40 group-hover:to-white/60 group-hover:scale-110 transition-all duration-300">
+                          <Plane className="text-white" size={20} />
+                        </div>
+                        <div className="text-2xl font-bold text-white">2028</div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-2 uppercase tracking-wide">
+                       Nationwide Expansion
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">
+                        Pan-India rollout of AirTaxi services.
+                      </p>
+                      <ul className="space-y-1">
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Nationwide vertiport connectivity
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Expanded fleet for high-demand routes
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                         Operations in all major cities
+                        </li>
+                        
+                      </ul>
                     </div>
-                    <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
-                      Network Expansion
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Expand to 10+ cities with integrated air traffic management systems. Introduce autonomous flight capabilities and passenger services.
-                    </p>
                   </div>
                 </div>
-                
-                <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
-                
-                <div className="w-1/2 pl-8">
-                  <div className="text-white/60">
-                    <MapPin size={40} />
+
+                {/* Desktop Layout */}
+                <div className="hidden md:flex items-center w-full">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
+                      <div className="flex items-center justify-end mb-3">
+                        <Calendar className="text-white mr-2" size={20} />
+                        <span className="text-white font-bold text-xl">2027</span>
+                      </div>
+                      <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+                        Network Expansion
+                      </h3>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        Expand to 10+ cities with integrated air traffic management systems. Introduce autonomous flight capabilities and passenger services.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
+                  
+                  <div className="w-1/2 pl-8">
+                    <div className="text-white/60">
+                      <MapPin size={40} />
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* 2028 - Global Reach */}
               <div className="timeline-item relative flex items-center">
-                <div className="w-1/2 pr-8 text-right">
-                  <div className="text-white/60">
-                    <Globe size={40} />
+                {/* Mobile Layout */}
+                <div className="block md:hidden w-full">
+                  {/* Timeline dot */}
+                  <div className="timeline-dot absolute left-8 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-black z-10"></div>
+                  
+                  {/* Content */}
+                  <div className="ml-16 pl-4">
+                    <div className="timeline-content bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/40 rounded-lg flex items-center justify-center mr-3 group-hover:from-white/40 group-hover:to-white/60 group-hover:scale-110 transition-all duration-300">
+                          <Globe className="text-white" size={20} />
+                        </div>
+                        <div className="text-2xl font-bold text-white">2029</div>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-2 uppercase tracking-wide">
+                       Rooftop Revolution
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">
+                      Home helipads and integrated healthcare ecosystem
+                      </p>
+                      <ul className="space-y-1">
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Residential helipad installations
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Direct home-to-hospital transport
+                        </li>
+                        <li className="flex items-center text-xs text-white/80">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full mr-2 flex-shrink-0"></div>
+                          Integrated health monitoring
+                        </li>
+                      
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
-                
-                <div className="w-1/2 pl-8">
-                  <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
-                    <div className="flex items-center mb-3">
-                      <Calendar className="text-white mr-2" size={20} />
-                      <span className="text-white font-bold text-xl">2028+</span>
+
+                {/* Desktop Layout */}
+                <div className="hidden md:flex items-center w-full">
+                  <div className="w-1/2 pr-8 text-right">
+                    <div className="text-white/60">
+                      <Globe size={40} />
                     </div>
-                    <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
-                      Global Leadership
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Achieve global market leadership in urban air mobility. Establish international routes and next-generation sustainable aviation technology.
-                    </p>
+                  </div>
+                  
+                  <div className="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white rounded-full border-4 border-black"></div>
+                  
+                  <div className="w-1/2 pl-8">
+                    <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
+                      <div className="flex items-center mb-3">
+                        <Calendar className="text-white mr-2" size={20} />
+                        <span className="text-white font-bold text-xl">2028+</span>
+                      </div>
+                      <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
+                        Global Leadership
+                      </h3>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        Achieve global market leadership in urban air mobility. Establish international routes and next-generation sustainable aviation technology.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

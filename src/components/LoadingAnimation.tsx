@@ -27,9 +27,9 @@ const LoadingAnimation = ({ onAnimationComplete }: LoadingAnimationProps) => {
           muted 
           playsInline
           onEnded={handleVideoEnd}
-          className="w-full h-full object-cover sm:w-full sm:h-full md:w-full md:h-full lg:w-full lg:h-full xs:w-1/2 xs:h-1/2 xxs:w-2/5 xxs:h-2/5"
+          className="w-full h-full object-cover"
         >
-          <source src="/airavaya-loading-animation.mp4" type="video/mp4" />
+          <source src="/new-loading-animation.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

@@ -248,12 +248,12 @@ export const ResponsiveImage: React.FC<{
 
 // Responsive Video Component
 export const ResponsiveVideo: React.FC<{
-  src: string;
-  poster?: string;
-  className?: string;
-  autoPlay?: boolean;
-  muted?: boolean;
-  loop?: boolean;
+  src: string;            
+  poster?: string;        
+  className?: string;    
+  autoPlay?: boolean;      
+  muted?: boolean;        
+  loop?: boolean;         
   controls?: boolean;
 }> = ({ 
   src, 
@@ -271,9 +271,9 @@ export const ResponsiveVideo: React.FC<{
   
   return (
     <video 
-      className={`w-full h-auto object-cover ${className}`}
-      src={src}
-      poster={poster}
+      className={`w-full h-auto object-cover scale-110 transform ${className}`}
+      src={src}                                    
+      poster={poster}                         
       autoPlay={shouldAutoPlay}
       muted={muted}
       loop={loop}
@@ -303,7 +303,7 @@ export const ResponsiveSection: React.FC<{
     };
     return paddingMap[padding];
   };
-  
+
   return (
     <section 
       className={`w-full ${getPaddingClasses()} ${className}`}

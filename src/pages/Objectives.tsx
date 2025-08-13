@@ -113,53 +113,42 @@ const Objectives = () => {
 
   const milestones = [
     {
-      year: '2025',
-      title: 'Launch - Medical Focus',
-      description: '2 cities, emergency medical transport priority',
+      year: '2027',
+      title: 'Pilot Program & Acquisition',
+      description: '2 cities, services & emergency medical transport priority',
       icon: Calendar,
       details: [
-        'San Francisco and Los Angeles launch',
-        'Partnership with major hospitals',
-        '24/7 emergency response capability',
-        'Medical equipment certification'
-      ]
-    },
-    {
-      year: '2026',
-      title: 'Expansion - Executive Tier',
-      description: '5 cities, luxury executive transport added',
-      icon: MapPin,
-      details: [
-        'New York, Chicago, Miami expansion',
-        'Executive transport services',
-        'Premium booking platform',
-        'Corporate partnership program'
+        'Launch pilot operations in Andhra Pradesh & Telangana',
+        'Acquire and deploy initial AirTaxi fleet',
+        'Partner with hospitals and vertiports',
+      
       ]
     },
     {
       year: '2027',
-      title: 'Aircraft Upgrades',
-      description: 'Enhanced range and sustainability features',
-      icon: Plane,
+      title: 'Service Launch',
+      description: 'Andhra Pradesh & Telangana — full commercial AirTaxi operations begin.',
+      icon: MapPin,
       details: [
-        'Next-generation VTOL aircraft',
-        'Extended range capabilities',
-        'Sustainable power systems',
-        'Advanced safety features'
+        
+        'Emergency medical and premium travel routes',
+        'Integration with vertiport network',
+        '24/7 service availability'
       ]
     },
     {
       year: '2028',
-      title: 'Global Scale',
-      description: 'International expansion to high-congestion cities',
-      icon: Globe,
+      title: 'Nationwide Expansion',
+      description: 'Pan-India rollout of AirTaxi services.',
+      icon: Plane,
       details: [
-        'London, Tokyo, Mumbai launches',
-        'International medical partnerships',
-        'Cross-border regulatory approval',
-        'Global fleet management'
+        'Operations in all major cities',
+        'Expanded fleet for high-demand routes',
+        'Nationwide vertiport connectivity',
+        
       ]
     },
+   
     {
       year: '2029',
       title: 'Rooftop Revolution',

@@ -1281,7 +1281,7 @@ const Home = () => {
                   <div className="timeline-content bg-airavata-gray/20 p-6 rounded-lg border border-airavata-gray">
                     <div className="flex items-center justify-end mb-3">
                       <Calendar className="text-white mr-2" size={20} />
-                      <span className="text-white font-bold text-xl">2025</span>
+                      <span className="text-white font-bold text-xl">2027</span>
                     </div>
                     <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
                       Product Development & Testing

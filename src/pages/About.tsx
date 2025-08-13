@@ -141,47 +141,47 @@ const About = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Header Section */}
-      <div ref={headerRef} className="absolute top-20 left-8 z-10 max-w-md">
-        <h1 className="text-white text-4xl font-bold mb-2">
+      <div ref={headerRef} className="absolute top-20 left-4 md:left-8 z-10 max-w-xs md:max-w-md px-4 md:px-0">
+        <h1 className="text-white text-2xl md:text-4xl font-bold mb-3 md:mb-2">
           MEET AIRAVATA
         </h1>
-        <div className="w-24 h-0.5 bg-white mb-4"></div>
-        <p className="text-white text-base uppercase leading-relaxed mb-6">
+        <div className="w-16 md:w-24 h-0.5 bg-white mb-4"></div>
+        <p className="text-white text-sm md:text-base uppercase leading-relaxed mb-4 md:mb-6">
           WE ARE A VISIONARY TEAM OF AVIATION EXPERTS AND TECHNOLOGY INNOVATORS UNITED BY A COMMON GOAL: REVOLUTIONIZING URBAN MOBILITY THROUGH THE SKIES.
         </p>
-        <p className="text-white text-base uppercase leading-relaxed mb-8">
+        <p className="text-white text-sm md:text-base uppercase leading-relaxed mb-6 md:mb-8">
           TODAY, WE'RE PIONEERING THE DEVELOPMENT OF LUXURIOUS, MEDICALLY-EQUIPPED AIR TAXIS THAT WILL TRANSFORM HOW PEOPLE MOVE THROUGH CITIES, STARTING WITH EMERGENCY MEDICAL TRANSPORT AND EXPANDING TO EXECUTIVE TRAVEL SOLUTIONS.
         </p>
         
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
           {/* Connect With Us Button */}
           <button 
             onClick={() => navigate('/contact')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="group relative inline-flex items-center w-full sm:w-auto px-4 py-2 md:px-8 md:py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs md:text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             
             {/* Button content */}
-            <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">Connect With Us</span>
-              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+            <div className="relative z-10 flex items-center justify-center w-full sm:w-auto">
+              <span className="mr-2 md:mr-3 group-hover:text-black transition-colors duration-500">Connect With Us</span>
+              <ArrowRight size={14} className="md:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
 
           {/* Explore Button */}
           <button 
             onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
+            className="group relative inline-flex items-center w-full sm:w-auto px-4 py-2 md:px-8 md:py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-xs md:text-sm overflow-hidden rounded-none"
           >
             {/* White hover animation background */}
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             
             {/* Button content */}
-            <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">Explore</span>
-              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
+            <div className="relative z-10 flex items-center justify-center w-full sm:w-auto">
+              <span className="mr-2 md:mr-3 group-hover:text-black transition-colors duration-500">Explore</span>
+              <ArrowRight size={14} className="md:size-[18px] group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>
         </div>
@@ -192,7 +192,7 @@ const About = () => {
         <img 
           src="https://i.ibb.co/n8zMKHsB/IMG-20250719-140017.webp" 
           alt="Futuristic Room" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110 md:scale-100 transition-transform duration-300"
         />
       </div>
 
@@ -220,14 +220,8 @@ const About = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   
-                  {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
-                      SARAH JOHNSON
-                    </h3>
-                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
-                      CEO & Founder
-                    </p>
+                  {/* Description overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 md:p-8 text-center">
                     <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
                     </p>
@@ -235,6 +229,16 @@ const About = () => {
                 </div>
                 {/* Glow effect */}
                 <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+              </div>
+              
+              {/* Name and Role under the circle */}
+              <div className="mt-4 text-center">
+                <h3 className="text-white text-lg md:text-xl font-bold mb-1 uppercase tracking-wide">
+                  SARAH JOHNSON
+                </h3>
+                <p className="text-white/80 text-sm md:text-base uppercase tracking-wider font-semibold">
+                  CEO & FOUNDER
+                </p>
               </div>
             </div>
 
@@ -249,14 +253,8 @@ const About = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   
-                  {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
-                      MICHAEL CHEN
-                    </h3>
-                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
-                      CTO & Co-Founder
-                    </p>
+                  {/* Description overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 md:p-8 text-center">
                     <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Technology innovator specializing in autonomous flight systems and AI integration. Former Tesla Autopilot team member.
                     </p>
@@ -264,6 +262,16 @@ const About = () => {
                 </div>
                 {/* Glow effect */}
                 <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+              </div>
+              
+              {/* Name and Role under the circle */}
+              <div className="mt-4 text-center">
+                <h3 className="text-white text-lg md:text-xl font-bold mb-1 uppercase tracking-wide">
+                  MICHAEL CHEN
+                </h3>
+                <p className="text-white/80 text-sm md:text-base uppercase tracking-wider font-semibold">
+                  CTO & CO-FOUNDER
+                </p>
               </div>
             </div>
 
@@ -278,14 +286,8 @@ const About = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   
-                  {/* Text overlay that appears on hover */}
-                  <div className="absolute inset-0 bg-black/70 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-2 md:p-8 text-center">
-                    <h3 className="text-white text-sm md:text-2xl font-bold mb-1 md:mb-3 uppercase tracking-wide">
-                      DR. LISA RODRIGUEZ
-                    </h3>
-                    <p className="text-white/80 text-xs md:text-sm mb-1 md:mb-4 uppercase tracking-wider font-semibold">
-                      Chief Medical Officer
-                    </p>
+                  {/* Description overlay that appears on hover */}
+                  <div className="absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 md:p-8 text-center">
                     <p className="text-white/90 text-xs md:text-sm leading-relaxed">
                       Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
                     </p>
@@ -293,6 +295,16 @@ const About = () => {
                 </div>
                 {/* Glow effect */}
                 <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-all duration-500"></div>
+              </div>
+              
+              {/* Name and Role under the circle */}
+              <div className="mt-4 text-center">
+                <h3 className="text-white text-lg md:text-xl font-bold mb-1 uppercase tracking-wide">
+                  DR. LISA RODRIGUEZ
+                </h3>
+                <p className="text-white/80 text-sm md:text-base uppercase tracking-wider font-semibold">
+                  CHIEF MEDICAL OFFICER
+                </p>
               </div>
             </div>
 

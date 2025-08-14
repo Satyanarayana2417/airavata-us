@@ -143,7 +143,7 @@ const About = () => {
       {/* Header Section */}
       <div ref={headerRef} className="absolute top-20 left-4 md:left-8 z-10 max-w-xs md:max-w-md px-4 md:px-0">
         <h1 className="text-white text-2xl md:text-4xl font-bold mb-3 md:mb-2">
-          MEET AIRAVATA
+          MEET AIRAVAT
         </h1>
         <div className="w-16 md:w-24 h-0.5 bg-white mb-4"></div>
         <p className="text-white text-sm md:text-base uppercase leading-relaxed mb-4 md:mb-6">
@@ -223,7 +223,7 @@ const About = () => {
                   {/* Description overlay that appears on hover */}
                   <div className="absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 md:p-8 text-center">
                     <p className="text-white/90 text-xs md:text-sm leading-relaxed">
-                      Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATA's vision for urban air mobility.
+                      Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVAT's vision for urban air mobility.
                     </p>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ const About = () => {
                   {/* Description overlay that appears on hover */}
                   <div className="absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 md:p-8 text-center">
                     <p className="text-white/90 text-xs md:text-sm leading-relaxed">
-                      Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATA aircraft.
+                      Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVAT aircraft.
                     </p>
                   </div>
                 </div>

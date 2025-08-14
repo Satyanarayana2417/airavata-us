@@ -184,7 +184,7 @@ const AirTaxi = () => {
               lineHeight: '1.6',
             }}
           >
-            EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVATA'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
+            EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVAT'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
             BYPASS TRAFFIC, REDUCE TRAVEL TIME, AND ELEVATE YOUR JOURNEY TO NEW HEIGHTS.
           </p>
           
@@ -271,7 +271,7 @@ const AirTaxi = () => {
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Point-to-Point Air Transport
                       </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">
@@ -307,7 +307,7 @@ const AirTaxi = () => {
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Aerial Tourism
                       </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">
@@ -361,7 +361,7 @@ const AirTaxi = () => {
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Emergency Response
                       </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">
@@ -389,7 +389,7 @@ const AirTaxi = () => {
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Pilot Program
                       </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">
@@ -443,7 +443,7 @@ const AirTaxi = () => {
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Cargo Transport
                       </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVATA Services</p>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">

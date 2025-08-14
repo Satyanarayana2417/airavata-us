@@ -129,8 +129,8 @@ const Navbar = () => {
             <div className="flex-shrink-0 py-1 sm:py-2">
               <Link to="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
                 <img 
-                  src="/logo.png" 
-                  alt="AIRAVATA Logo" 
+                  src="/new-airavata-logo.png" 
+                  alt="AIRAVAT Logo" 
                   className="w-auto object-contain"
                   style={getLogoSize()}
                 />

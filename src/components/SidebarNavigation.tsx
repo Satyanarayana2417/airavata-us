@@ -44,8 +44,8 @@ const SidebarNavigation = () => {
           <div className="p-6 border-b border-gray-800">
             <Link to="/" onClick={() => setIsOpen(false)}>
               <img 
-                src="/lovable-uploads/8b7df1aa-ba0f-42f7-a927-79a0d9e57dee.png" 
-                alt="AIRAVATA" 
+                src="/new-airavata-logo.png" 
+                alt="AIRAVAT" 
                 className="h-16 w-auto"
               />
             </Link>

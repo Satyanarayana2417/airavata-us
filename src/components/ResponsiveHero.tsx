@@ -23,7 +23,7 @@ interface ResponsiveHeroProps {
 }
 
 /**
- * Enhanced responsive hero section for AIRAVATA
+ * Enhanced responsive hero section for AIRAVAT
  * Handles background media, text positioning, and CTAs across all devices
  */
 export const ResponsiveHero: React.FC<ResponsiveHeroProps> = ({

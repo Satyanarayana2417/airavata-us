@@ -330,13 +330,13 @@ const Mission = () => {
               After
             </h2>
             <p className="text-gray-300 text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
-              AIRAVATA air taxi flying directly to destination
+              AIRAVAT air taxi flying directly to destination
             </p>
             <div className="text-white text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
               15 Minutes
             </div>
             <p className="text-gray-400 text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
-              AIRAVATA Solution
+              AIRAVAT Solution
             </p>
           </div>
         </div>

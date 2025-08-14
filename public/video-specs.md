@@ -1,5 +1,5 @@
 
-# AIRAVATA Cinematic Video Background Specifications
+# AIRAVAT Cinematic Video Background Specifications
 
 ## Video Requirements
 
@@ -12,7 +12,7 @@
 
 ### Visual Style
 - **Theme**: Dark, atmospheric, premium
-- **Subject**: AIRAVATA air taxi in flight
+- **Subject**: AIRAVAT air taxi in flight
 - **Environment**: Night cityscape, cloud layer, or atmospheric flight
 - **Lighting**: Edge lighting on aircraft, soft lens flares, realistic grading
 - **Color Palette**: Deep blacks, dark blues, minimal warm accents

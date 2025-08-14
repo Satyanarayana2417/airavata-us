@@ -13,7 +13,7 @@ interface ResponsiveContainerProps {
 }
 
 /**
- * Enhanced responsive container for AIRAVATA
+ * Enhanced responsive container for AIRAVAT
  * Handles all screen sizes with optimal padding and spacing
  */
 export const ResponsiveContainer: React.FC<ResponsiveContainerProps> = ({

@@ -2,7 +2,7 @@
  * Enhanced responsive utility functions for handling different screen sizes
  * Mobile-first approach with comprehensive device support
  * 
- * @version 2.0 - Enhanced for AIRAVATA project
+ * @version 2.0 - Enhanced for AIRAVAT project
  */
 
 // Enhanced breakpoint definitions with specific device targeting

@@ -277,7 +277,7 @@ const Objectives = () => {
               2029 Vision: The Connected Sky
             </h2>
             <p className="text-lg sm:text-xl text-white leading-relaxed max-w-4xl mx-auto mb-8">
-              By 2029, AIRAVATA will have transformed urban landscapes with integrated 
+              By 2029, AIRAVAT will have transformed urban landscapes with integrated 
               helipad infrastructure on residential buildings, hospitals, and corporate offices. 
               Our vision: a seamless healthcare ecosystem where emergency response times 
               are measured in minutes, not hours.

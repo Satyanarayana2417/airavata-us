@@ -16,7 +16,7 @@ interface ResponsiveButtonProps {
 }
 
 /**
- * Enhanced responsive button component for AIRAVATA
+ * Enhanced responsive button component for AIRAVAT
  * Optimizes touch targets and sizing across all devices
  */
 export const ResponsiveButton: React.FC<ResponsiveButtonProps> = ({

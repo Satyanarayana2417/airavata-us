@@ -13,6 +13,9 @@ import Mission from "./pages/Mission";
 import About from "./pages/About";
 import Objectives from "./pages/Objectives";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,19 +41,27 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <div className="min-h-screen bg-airavata-black">
+      <div className="min-h-screen bg-airavata-black flex flex-col">
         <BrowserRouter>
           <ScrollToTop />
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/air-taxi" element={<AirTaxi />} />
-            <Route path="/mission" element={<Mission />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/objectives" element={<Objectives />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/air-taxi" element={<AirTaxi />} />
+              <Route path="/mission" element={<Mission />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/objectives" element={<Objectives />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/services" element={<AirTaxi />} />
+              <Route path="/technology" element={<Mission />} />
+              <Route path="/news" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
           <Footer />
         </BrowserRouter>
       </div>

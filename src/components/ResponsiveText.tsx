@@ -13,7 +13,7 @@ interface ResponsiveTextProps {
 }
 
 /**
- * Enhanced responsive typography component for AIRAVATA
+ * Enhanced responsive typography component for AIRAVAT
  * Handles text sizing across all breakpoints with brand consistency
  */
 export const ResponsiveText: React.FC<ResponsiveTextProps> = ({

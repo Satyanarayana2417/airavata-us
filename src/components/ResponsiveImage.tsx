@@ -17,7 +17,7 @@ interface ResponsiveImageProps {
 }
 
 /**
- * Enhanced responsive image component for AIRAVATA
+ * Enhanced responsive image component for AIRAVAT
  * Handles responsive loading, aspect ratios, and optimal sizing across devices
  */
 export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({

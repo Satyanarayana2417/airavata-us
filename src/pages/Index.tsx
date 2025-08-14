@@ -49,7 +49,7 @@ const Index = () => {
       {/* Content */}
       <div ref={contentRef} className="text-center relative z-10 max-w-4xl px-8">
         <h1 className="text-white text-6xl font-bold mb-6 uppercase tracking-wider">
-          AIRAVATA
+          AIRAVAT
         </h1>
         <div className="w-32 h-0.5 bg-white mx-auto mb-8"></div>
         <p className="text-white/90 text-xl mb-12 leading-relaxed uppercase tracking-wide">
@@ -57,7 +57,7 @@ const Index = () => {
         </p>
         <p className="text-white/80 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
           Revolutionary urban air mobility solutions that transform how people move through cities. 
-          Experience the next generation of transportation with AIRAVATA's advanced air taxi technology.
+          Experience the next generation of transportation with AIRAVAT's advanced air taxi technology.
         </p>
         
         {/* Buttons */}
@@ -68,7 +68,7 @@ const Index = () => {
           >
             <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
             <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">Enter AIRAVATA</span>
+              <span className="mr-3 group-hover:text-black transition-colors duration-500">Enter AIRAVAT</span>
               <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
             </div>
           </button>

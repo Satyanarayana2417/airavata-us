@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AirTaxi = () => {
   const navigate = useNavigate();
-  const heroContentRef = useRef<HTMLDivElement>(null);
   const secondContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,17 +24,17 @@ const AirTaxi = () => {
       }, 100);
     }
     
-    // Hero section animation (left to right)
-    if (heroContentRef.current) {
-      const elements = heroContentRef.current.children;
+    // First section animation (right to left)
+    if (secondContentRef.current) {
+      const elements = secondContentRef.current.children;
       
       // Set initial state
       gsap.set(elements, {
-        x: -100,
+        x: 100,
         opacity: 0
       });
 
-      // Animate elements from left to right with stagger
+      // Animate elements from right to left with stagger
       gsap.to(elements, {
         x: 0,
         opacity: 1,
@@ -46,32 +45,6 @@ const AirTaxi = () => {
       });
     }
 
-    // Second section animation on scroll (right to left)
-    if (secondContentRef.current) {
-      const elements = secondContentRef.current.children;
-      
-      // Set initial state
-      gsap.set(elements, {
-        x: 100,
-        opacity: 0
-      });
-
-      // Create scroll trigger animation
-      ScrollTrigger.create({
-        trigger: secondContentRef.current,
-        start: 'top 70%',
-        onEnter: () => {
-          gsap.to(elements, {
-            x: 0,
-            opacity: 1,
-            duration: 1.2,
-            stagger: 0.3,
-            ease: "power2.out"
-          });
-        }
-      });
-    }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -79,70 +52,7 @@ const AirTaxi = () => {
 
   return (
     <div className="relative overflow-hidden pt-16">
-      {/* Hero Section - Full Background Image */}
-      <section 
-        className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
-        style={{
-          backgroundImage: `url('./airtaxi.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-        role="img"
-        aria-label="Advanced air taxi aircraft in flight"
-      >
-        {/* Subtle overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
-        
-        {/* Text and Button - Bottom Left */}
-        <div ref={heroContentRef} className="relative z-10 pb-8 pl-4 xxs:pb-12 xxs:pl-6 xs:pb-16 xs:pl-8 max-w-xs xxs:max-w-sm xs:max-w-lg" style={{ paddingBottom: 'clamp(2rem, 3vw, 4rem)', paddingLeft: 'clamp(1rem, 4vw, 3rem)' }}>
-          <h1 
-            className="font-bold text-white leading-tight uppercase mb-4 xxs:mb-6"
-            style={{
-              fontSize: 'clamp(1rem, 4vw, 2rem)',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              color: '#ffffff',
-              letterSpacing: '0.05em',
-              fontWeight: '900',
-              textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-              lineHeight: '1.1',
-            }}
-          >
-            Meet the Air Taxi
-          </h1>
-          
-          <p 
-            className="text-white/90 font-medium leading-relaxed mb-6 xxs:mb-8"
-            style={{
-              fontSize: 'clamp(0.75rem, 2.2vw, 1.125rem)',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              letterSpacing: '0.02em',
-              fontWeight: '500',
-              textShadow: '0 1px 4px rgba(0,0,0,0.3)',
-              lineHeight: '1.5',
-            }}
-          >
-            AIR TAXIS ARE ELECTRIC VERTICAL TAKEOFF AND LANDING (EVTOL) AIRCRAFT DESIGNED TO REVOLUTIONIZE URBAN TRANSPORTATION.
-          </p>
-          
-          {/* Learn More Button */}
-          <button 
-            onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden"
-          >
-            {/* White hover animation background */}
-            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-            
-            {/* Button content */}
-            <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">LEARN OUR MISSION</span>
-              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
-            </div>
-          </button>
-        </div>
-      </section>
-
-      {/* Second Section - Future Vision */}
+      {/* Hero Section - Future Vision */}
       <section 
         className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
         style={{
@@ -184,8 +94,7 @@ const AirTaxi = () => {
               lineHeight: '1.6',
             }}
           >
-            EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVAT'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
-            BYPASS TRAFFIC, REDUCE TRAVEL TIME, AND ELEVATE YOUR JOURNEY TO NEW HEIGHTS.
+           Air taxis are electric vertical takeoff and landing (eVTOL) aircraft, revolutionizing urban transportation. With Airavata’s cutting-edge technology, bypass traffic, reduce travel time, and elevate your journey to new heights — the next generation of urban mobility.
           </p>
           
           {/* Discover More Button */}
@@ -242,7 +151,8 @@ const AirTaxi = () => {
                   muted 
                   playsInline
                 >
-                  <source src="./videos/Pointtopoint_airport_transfer_202507242058_.mp4" type="video/mp4" />
+                  <source src="./videos/Future_infrastructure_vertiports_20250724205.mp4"
+                  type="video/mp4" />
                 </video>
               </div>
               
@@ -305,60 +215,6 @@ const AirTaxi = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
-                        Aerial Tourism
-                      </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
-                    </div>
-                  </div>
-                  <p className="text-white/85 text-base leading-relaxed font-medium">
-                    Luxury sky adventures offering scenic flight experiences with panoramic views of landscapes, landmarks, and natural wonders designed for leisure and premium travel experiences.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Video Card */}
-              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 lg:order-2 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
-                <video 
-                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="./videos/Tourism_experience_8second_202507242059_ati.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-
-            {/* Service 3 - Emergency Response */}
-            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Video Card */}
-              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
-                <video 
-                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                >
-                  <source src="./videos/Emergency_medical_service_202507242059_txe26.mp4" type="video/mp4" />
-                </video>
-              </div>
-              
-              {/* Description Card */}
-              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer">
-                {/* Interactive glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
-                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
                         Emergency Response
                       </h3>
                       <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
@@ -369,34 +225,6 @@ const AirTaxi = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Service 4 - Pilot Program */}
-            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Description Card (Left on this one for variety) */}
-              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer lg:order-1">
-                {/* Interactive glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
-                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
-                        Pilot Program
-                      </h3>
-                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
-                    </div>
-                  </div>
-                  <p className="text-white/85 text-base leading-relaxed font-medium">
-                    Testing safety and scalability through trial-based operations in select pre-authorized regions to evaluate performance and prepare for future expansion of aerial mobility services.
-                  </p>
-                </div>
-              </div>
               
               {/* Video Card */}
               <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 lg:order-2 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
@@ -407,12 +235,12 @@ const AirTaxi = () => {
                   muted 
                   playsInline
                 >
-                  <source src="./videos/Future_infrastructure_vertiports_20250724205.mp4" type="video/mp4" />
+                  <source src="./videos/Emergency_medical_service_202507242059_txe26.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
 
-            {/* Service 5 - Cargo Point-to-Point Service */}
+            {/* Service 3 - Emergency Response */}
             <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* Video Card */}
               <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
@@ -436,18 +264,61 @@ const AirTaxi = () => {
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
                       <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                       </svg>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
-                        Cargo Transport
+                         Cargo Transport
                       </h3>
                       <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
                     </div>
                   </div>
                   <p className="text-white/85 text-base leading-relaxed font-medium">
-                    Fast delivery via point-to-point air corridors for secure transportation of critical cargo between designated aerial hubs, ideal for medical supplies and urgent logistics.
+                     Fast delivery via point-to-point air corridors for secure transportation of critical cargo between designated aerial hubs, ideal for medical supplies and urgent logistics.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+           
+
+            {/* Service 5 - Cargo Point-to-Point Service */}
+            <div className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Video Card */}
+              <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border-2 border-white p-4 bg-white/10 backdrop-blur-sm">
+                <video 
+                  className="w-full h-64 lg:h-72 object-cover rounded-lg"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src="./videos/Tourism_experience_8second_202507242059_ati.mp4"  type="video/mp4" />
+                </video>
+              </div>
+              
+              {/* Description Card */}
+              <div className="group/card relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-lg p-8 hover:from-white/15 hover:to-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer">
+                {/* Interactive glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover/card:from-white/40 group-hover/card:to-white/20 transition-all duration-300 flex-shrink-0 shadow-lg">
+                      <svg className="w-7 h-7 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-xl mb-2 group-hover/card:text-white tracking-wide">
+                        Aerial Tourism
+                      </h3>
+                      <p className="text-white/60 text-sm font-medium uppercase tracking-wider">AIRAVAT Services</p>
+                    </div>
+                  </div>
+                  <p className="text-white/85 text-base leading-relaxed font-medium">
+                    Luxury sky adventures offering scenic flight experiences with panoramic views of landscapes, landmarks, and natural wonders designed for leisure and premium travel experiences.
                   </p>
                 </div>
               </div>

@@ -424,10 +424,10 @@ const Mission = () => {
           <div className="bg-transparent border border-white/30 p-6 hover:border-white/60 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105">
             <div className="text-3xl mb-3">🌐</div>
             <h3 className="text-white text-lg font-semibold mb-3 uppercase tracking-wide">
-              Statewide Helipad Connectivity (AP & TS)
+              Extensive Connectivity 
             </h3>
             <p className="text-white/80 text-sm leading-relaxed">
-              We're creating full connectivity between every helipad across Andhra Pradesh and Telangana — laying the foundation for regional air mobility.
+              We build seamless connectivity across groundports and vertiports — laying the foundation for a robust regional air mobility network.
             </p>
           </div>
 

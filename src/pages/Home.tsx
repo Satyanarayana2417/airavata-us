@@ -19,7 +19,6 @@ const Home = () => {
   const heroContentRef = useRef<HTMLDivElement>(null);
   const secondContentRef = useRef<HTMLDivElement>(null);
   const featuresContentRef = useRef<HTMLDivElement>(null);
-  const airTaxiContentRef = useRef<HTMLDivElement>(null);
   const futureVisionContentRef = useRef<HTMLDivElement>(null);
   
   // About page refs
@@ -128,30 +127,6 @@ const Home = () => {
 
       ScrollTrigger.create({
         trigger: featuresContentRef.current,
-        start: 'top 80%',
-        onEnter: () => {
-          gsap.to(elements, {
-            x: 0,
-            opacity: 1,
-            duration: 1.2,
-            stagger: 0.3,
-            ease: "power2.out"
-          });
-        }
-      });
-    }
-
-    // Air Taxi section animation (left to right)
-    if (airTaxiContentRef.current) {
-      const elements = airTaxiContentRef.current.children;
-      
-      gsap.set(elements, {
-        x: -100,
-        opacity: 0
-      });
-
-      ScrollTrigger.create({
-        trigger: airTaxiContentRef.current,
         start: 'top 80%',
         onEnter: () => {
           gsap.to(elements, {
@@ -755,72 +730,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Air Taxi Section 1 - Meet the Air Taxi */}
-      <section 
-        id="air-taxi"
-        className="relative min-h-screen flex items-end justify-start overflow-hidden bg-black"
-        style={{
-          backgroundImage: `url('./airtaxi.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-        role="img"
-        aria-label="Advanced air taxi aircraft in flight"
-      >
-        {/* Subtle overlay for text readability */}
-        <div className="absolute inset-0 bg-black/30 pointer-events-none"></div>
-        
-        {/* Text and Button - Bottom Left */}
-        <div ref={airTaxiContentRef} className="relative z-10 pb-16 pl-8 max-w-lg" style={{ paddingBottom: '3vw', paddingLeft: '4vw' }}>
-          <h1 
-            className="font-bold text-white leading-tight uppercase mb-6"
-            style={{
-              fontSize: 'clamp(1.125rem, 2.5vw, 2rem)',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              color: '#ffffff',
-              letterSpacing: '0.05em',
-              fontWeight: '900',
-              textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-              lineHeight: '1.1',
-            }}
-          >
-            Meet the Air Taxi
-          </h1>
-          
-          <p 
-            className="text-white/90 font-medium leading-relaxed mb-8"
-            style={{
-              fontSize: 'clamp(0.875rem, 1.4vw, 1.125rem)',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              letterSpacing: '0.02em',
-              fontWeight: '500',
-              textShadow: '0 1px 4px rgba(0,0,0,0.3)',
-              lineHeight: '1.5',
-            }}
-          >
-            AIR TAXIS ARE ELECTRIC VERTICAL TAKEOFF AND LANDING (EVTOL) AIRCRAFT DESIGNED TO REVOLUTIONIZE URBAN TRANSPORTATION.
-          </p>
-          
-          {/* Learn More Button */}
-          <button 
-            onClick={() => navigate('/mission')}
-            className="group relative inline-flex items-center px-8 py-4 bg-transparent border-2 border-white/30 text-white font-semibold tracking-wide transition-all duration-500 hover:border-white uppercase text-sm overflow-hidden rounded-none"
-          >
-            {/* White hover animation background */}
-            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-            
-            {/* Button content */}
-            <div className="relative z-10 flex items-center">
-              <span className="mr-3 group-hover:text-black transition-colors duration-500">LEARN OUR MISSION</span>
-              <ArrowRight size={18} className="group-hover:translate-x-2 group-hover:text-black transition-all duration-500" />
-            </div>
-          </button>
-        </div>
-      </section>
-
       {/* Air Taxi Section 2 - Future Vision */}
       <section 
+        id="air-taxi"
         className="relative min-h-screen flex items-end justify-end overflow-hidden bg-black"
         style={{
           backgroundImage: `url('./airtaxi 2s.jpg')`,

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AirTaxi from "./pages/AirTaxi";
+import Vehicle from "./pages/Vehicle";
 import Mission from "./pages/Mission";
 import About from "./pages/About";
 import Objectives from "./pages/Objectives";
@@ -49,6 +50,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/air-taxi" element={<AirTaxi />} />
+              <Route path="/vehicle" element={<Vehicle />} />
               <Route path="/mission" element={<Mission />} />
               <Route path="/about" element={<About />} />
               <Route path="/objectives" element={<Objectives />} />

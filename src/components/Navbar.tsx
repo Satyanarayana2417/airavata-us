@@ -16,6 +16,7 @@ const Navbar = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/mission', label: 'Our Mission' },
+    { path: '/vehicle', label: 'Vehicle' },
     { path: '/air-taxi', label: 'Services' },
     { path: '/objectives', label: 'Future Objectives' },
     { path: '/contact', label: 'Contact' },
@@ -116,12 +117,19 @@ const Navbar = () => {
     return 'px-4 sm:px-6 lg:px-8';
   };
 
+  // Check if current page is Vehicle
+  const isVehiclePage = location.pathname === '/vehicle';
+
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 transform ${
         visible ? 'translate-y-0' : '-translate-y-full'
       } ${
-        scrolled ? 'lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-none bg-black/90 backdrop-blur-md shadow-xl border-b border-gray-700' : 'bg-transparent backdrop-blur-none'
+        isVehiclePage 
+          ? 'bg-transparent backdrop-blur-none shadow-none border-none' 
+          : scrolled 
+            ? 'lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-none bg-black/90 backdrop-blur-md shadow-xl border-b border-gray-700' 
+            : 'bg-transparent backdrop-blur-none'
       }`}>
         <div className={`max-w-7xl mx-auto ${getPadding()}`}>
           <div className={`flex items-center justify-between ${getNavbarHeight()}`}>

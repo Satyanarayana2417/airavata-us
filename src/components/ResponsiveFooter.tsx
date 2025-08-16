@@ -47,23 +47,23 @@ const ResponsiveFooter = () => {
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/airavat',
+      url: 'https://instagram.com/AIRAVATHh',
       color: 'hover:text-pink-500',
-      handle: '@airavat'
+      handle: '@airavathHh'
     },
     {
       name: 'Facebook', 
       icon: Facebook,
-      url: 'https://facebook.com/airavat',
+      url: 'https://facebook.com/AIRAVATHh',
       color: 'hover:text-blue-500',
-      handle: '@airavat'
+      handle: '@airavathHh'
     },
     {
       name: 'YouTube',
       icon: Youtube,
-      url: 'https://youtube.com/airavat',
+      url: 'https://youtube.com/AIRAVATHh',
       color: 'hover:text-red-500',
-      handle: '@airavat'
+      handle: '@airavathHh'
     }
   ];
 
@@ -102,8 +102,8 @@ const ResponsiveFooter = () => {
           <div className="text-left mb-8 pb-6 border-b border-zinc-800">
             <div className="flex justify-start mb-4">
               <img 
-                src="/new-airavata-logo.png" 
-                alt="AIRAVAT" 
+                src="/new-AIRAVATHa-logo.png" 
+                alt="AIRAVATH" 
                 className="h-10 w-auto object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -113,7 +113,7 @@ const ResponsiveFooter = () => {
               />
               <div className="hidden flex items-center space-x-2">
                 <Plane className="h-8 w-8 text-blue-500" />
-                <span className="text-2xl font-bold text-white">AIRAVAT</span>
+                <span className="text-2xl font-bold text-white">AIRAVATHH</span>
               </div>
             </div>
             <p className="text-zinc-300 text-sm leading-relaxed text-left">
@@ -211,14 +211,14 @@ const ResponsiveFooter = () => {
                 <ContactItem
                   icon={Mail}
                   title="Email"
-                  content="info@airavat.com"
-                  link="mailto:info@airavat.com"
+                  content="info@airavathH.com"
+                  link="mailto:info@airavathH.com"
                 />
                 <ContactItem
                   icon={Phone}
                   title="Phone"
-                  content="+1 (555) AIRAVAT"
-                  link="tel:+1-555-AIRAVAT"
+                  content="+1 (555) AIRAVATH"
+                  link="tel:+1-555-AIRAVATH"
                 />
                 <ContactItem
                   icon={MapPin}
@@ -240,8 +240,8 @@ const ResponsiveFooter = () => {
             <div className="col-span-2 space-y-6">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/new-airavata-logo.png" 
-                  alt="AIRAVAT" 
+                  src="/new-AIRAVATHa-logo.png" 
+                  alt="AIRAVATHH" 
                   className="h-20 w-auto object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -251,7 +251,7 @@ const ResponsiveFooter = () => {
                 />
                 <div className="hidden flex items-center space-x-2">
                   <Plane className="h-12 w-12 text-blue-500" />
-                  <span className="text-4xl font-bold text-white">AIRAVAT</span>
+                  <span className="text-4xl font-bold text-white">AIRAVATH</span>
                 </div>
               </div>
 
@@ -331,14 +331,14 @@ const ResponsiveFooter = () => {
                 <ContactItem
                   icon={Mail}
                   title="Email"
-                  content="info@airavat.com"
-                  link="mailto:info@airavat.com"
+                  content="info@airavathH.com"
+                  link="mailto:info@airavathH.com"
                 />
                 <ContactItem
                   icon={Phone}
                   title="Phone"
-                  content="+1 (555) AIRAVAT"
-                  link="tel:+1-555-AIRAVAT"
+                  content="+1 (555) AIRAVATH"
+                  link="tel:+1-555-AIRAVATH"
                 />
                 <ContactItem
                   icon={MapPin}
@@ -368,7 +368,7 @@ const ResponsiveFooter = () => {
             
             <div className="flex flex-col lg:flex-row items-center lg:space-x-6 space-y-2 lg:space-y-0 text-center lg:text-left">
               <span className="text-zinc-400 text-sm font-mono">
-                © {currentYear} AIRAVAT. All rights reserved.
+                © {currentYear} AIRAVATH. All rights reserved.
               </span>
               <div className="hidden lg:block h-4 w-px bg-zinc-700"></div>
               <span className="text-zinc-500 text-xs font-mono">

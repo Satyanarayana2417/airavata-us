@@ -482,7 +482,7 @@ const Home = () => {
     setTimeout(() => {
       toast({
         title: "Message Sent Successfully",
-        description: "Thank you for your interest in AIRAVAT. We'll be in touch soon.",
+        description: "Thank you for your interest in AIRAVATH. We'll be in touch soon.",
       });
       
       setFormData({ name: '', email: '', message: '' });
@@ -519,11 +519,11 @@ const Home = () => {
         {/* Hero Two-Line Uppercase Text - Top Center on Mobile, Bottom-Left on Desktop */}
         <div ref={heroContentRef} className="relative z-10 pb-1 pl-1 xxs:pb-2 xxs:pl-2 xs:pb-4 xs:pl-4 sm:pb-6 sm:pl-8 lg:pb-12 lg:pl-16 max-w-full xxs:max-w-xs xs:max-w-sm sm:max-w-3xl flex flex-col items-center sm:items-start justify-start pt-20 sm:justify-end sm:pt-0 min-h-screen sm:min-h-0" style={{ paddingBottom: 'clamp(0.5rem, 1.5vw, 2rem)', paddingLeft: 'clamp(0.25rem, 3vw, 1.5rem)' }}>
           
-          {/* AIRAVAT Logo - Only visible on mobile screens */}
+          {/* AIRAVATH Logo - Only visible on mobile screens */}
           <div className="block sm:hidden mb-12 mt-8 flex flex-col justify-start items-start ml-11 pl-2">
             <img 
               src="/new-airavata-logo.png" 
-              alt="AIRAVAT Logo" 
+              alt="AIRAVATH Logo" 
               className="w-60 h-auto object-contain mb-4"
               style={{
                 filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))'
@@ -775,11 +775,11 @@ const Home = () => {
           >
             {/* Mobile text (shorter) */}
             <span className="block sm:hidden">
-              AIRAVAT AIR TAXIS — FASTER, SMARTER TRAVEL.
+              AIRAVATH AIR TAXIS — FASTER, SMARTER TRAVEL.
             </span>
             {/* Desktop text (longer) */}
             <span className="hidden sm:block">
-              EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVAT'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
+              EXPERIENCE THE NEXT GENERATION OF URBAN MOBILITY WITH AIRAVATH'S REVOLUTIONARY AIR TAXI TECHNOLOGY. 
               BYPASS TRAFFIC, REDUCE TRAVEL TIME, AND ELEVATE YOUR JOURNEY TO NEW HEIGHTS.
             </span>
           </p>
@@ -807,7 +807,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ABOUT SECTION - Meet AIRAVAT */}
+      {/* ABOUT SECTION - Meet AIRAVATH */}
       <section 
         id="about"
         className="relative min-h-screen bg-black"
@@ -826,7 +826,7 @@ const Home = () => {
           <h1 className="text-white font-bold mb-2" style={{
             fontSize: 'clamp(1.5rem, 4vw, 4rem)',
           }}>
-            MEET AIRAVAT
+            MEET AIRAVATH
           </h1>
           <div className="w-24 h-0.5 bg-white mb-4"></div>
           
@@ -921,7 +921,7 @@ const Home = () => {
                     {/* Mobile - Description only overlay */}
                     <div className="md:hidden absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 text-center">
                       <p className="text-white/90 text-xs leading-relaxed">
-                        Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVAT's vision for urban air mobility.
+                        Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATH's vision for urban air mobility.
                       </p>
                     </div>
                     
@@ -934,7 +934,7 @@ const Home = () => {
                         CEO & Founder
                       </p>
                       <p className="text-white/90 text-sm leading-relaxed">
-                        Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVAT's vision for urban air mobility.
+                        Aviation expert with 15+ years in aerospace engineering. Former Boeing engineer leading AIRAVATH's vision for urban air mobility.
                       </p>
                     </div>
                   </div>
@@ -1009,7 +1009,7 @@ const Home = () => {
                     {/* Mobile - Description only overlay */}
                     <div className="md:hidden absolute inset-0 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-95 group-hover:scale-100 p-4 text-center">
                       <p className="text-white/90 text-xs leading-relaxed">
-                        Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVAT aircraft.
+                        Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATH aircraft.
                       </p>
                     </div>
                     
@@ -1022,7 +1022,7 @@ const Home = () => {
                         Chief Medical Officer
                       </p>
                       <p className="text-white/90 text-sm leading-relaxed">
-                        Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVAT aircraft.
+                        Emergency medicine specialist with 20+ years experience. Leading the integration of medical equipment in AIRAVATH aircraft.
                       </p>
                     </div>
                   </div>
@@ -1192,7 +1192,7 @@ const Home = () => {
             >
             Our mission is to unlock smarter, cleaner, and faster mobility through the skies.
               <br /><br />
-             AIRAVAT's VTOL air taxis turn hours into minutes — for city travel, emergencies, and executive transport — cutting through traffic with safety and speed.
+             AIRAVATH's VTOL air taxis turn hours into minutes — for city travel, emergencies, and executive transport — cutting through traffic with safety and speed.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-8">
@@ -1265,13 +1265,13 @@ const Home = () => {
                   After
                 </h2>
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
-                  AIRAVAT air taxi flying directly to destination
+                  AIRAVATH air taxi flying directly to destination
                 </p>
                 <div className="text-white text-3xl sm:text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
                   15 Minutes
                 </div>
                 <p className="text-gray-400 text-xs sm:text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
-                  AIRAVAT Solution
+                  AIRAVATH Solution
                 </p>
               </div>
             </div>
@@ -1646,7 +1646,7 @@ const Home = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="bg-transparent border-2 border-white text-white placeholder-white focus:border-white focus:ring-white/20 resize-none"
-                  placeholder="Tell us about your interest in AIRAVAT..."
+                  placeholder="Tell us about your interest in AIRAVATH..."
                 />
               </div>
 
@@ -1697,7 +1697,7 @@ const Home = () => {
               </h3>
               <div className="space-y-3 text-airavata-light-gray">
                 <div className="mb-4">
-                  <p className="font-semibold text-white mb-2">AIRAVAT Headquarters</p>
+                  <p className="font-semibold text-white mb-2">AIRAVATH Headquarters</p>
                   <p>123 Innovation Drive</p>
                   <p>INDIA, 94102</p>
                 </div>
@@ -1719,12 +1719,12 @@ const Home = () => {
               </h3>
               <div className="space-y-3 text-airavata-light-gray">
                 <div className="mb-4">
-                  <p className="font-semibold text-white mb-2">AIRAVAT Main Line</p>
+                  <p className="font-semibold text-white mb-2">AIRAVATH Main Line</p>
                   <p>+91  123-4567 phone</p>
                   <p>+91  123-4568 facsimile</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-white mb-2">AIRAVAT 24/7 Department</p>
+                  <p className="font-semibold text-white mb-2">AIRAVATH 24/7 Department</p>
                   <p>+91  911-HELP</p>
                 </div>
               </div>
@@ -1741,11 +1741,11 @@ const Home = () => {
               <div className="space-y-3 text-airavata-light-gray">
                 <div className="mb-4">
                   <p className="font-semibold text-white mb-2">Request for Proposal</p>
-                  <p>info@airavat.com</p>
+                  <p>info@airavath.com</p>
                 </div>
                 <div>
                   <p className="font-semibold text-white mb-2">for Calls</p>
-                  <p>service@airavat.com</p>
+                  <p>service@airavath.com</p>
                 </div>
               </div>
             </div>

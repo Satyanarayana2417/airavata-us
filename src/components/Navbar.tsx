@@ -138,7 +138,7 @@ const Navbar = () => {
               <Link to="/" className="flex items-center hover:opacity-80 transition-opacity duration-200">
                 <img 
                   src="/new-airavata-logo.png" 
-                  alt="AIRAVAT Logo" 
+                  alt="AIRAVATH Logo" 
                   className="w-auto object-contain"
                   style={getLogoSize()}
                 />

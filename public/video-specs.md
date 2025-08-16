@@ -1,5 +1,5 @@
 
-# AIRAVAT Cinematic Video Background Specifications
+# AIRAVATH Cinematic Video Background Specifications
 
 ## Video Requirements
 
@@ -12,7 +12,7 @@
 
 ### Visual Style
 - **Theme**: Dark, atmospheric, premium
-- **Subject**: AIRAVAT air taxi in flight
+- **Subject**: AIRAVATH air taxi in flight
 - **Environment**: Night cityscape, cloud layer, or atmospheric flight
 - **Lighting**: Edge lighting on aircraft, soft lens flares, realistic grading
 - **Color Palette**: Deep blacks, dark blues, minimal warm accents
@@ -25,9 +25,9 @@
 - **Sound**: Video will be muted (no audio needed)
 
 ### Placement
-- Primary: `/public/videos/airavata-cinematic-hero.mp4`
-- Fallback: `/public/videos/airavata-cinematic-hero.webm`
-- Poster: `/public/images/airavata-hero-poster.jpg`
+- Primary: `/public/videos/AIRAVATHa-cinematic-hero.mp4`
+- Fallback: `/public/videos/AIRAVATHa-cinematic-hero.webm`
+- Poster: `/public/images/AIRAVATHa-hero-poster.jpg`
 
 ### Mobile Considerations
 - Reduced resolution version for mobile

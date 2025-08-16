@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useResponsive } from '@/hooks/use-responsive';
 
 /**
- * Enhanced ResponsiveDebugger - AIRAVAT Edition
+ * Enhanced ResponsiveDebugger - AIRAVATH Edition
  * Development tool to test and debug responsive behavior
  * Shows current breakpoint, screen dimensions, device information and testing tools
  */
@@ -79,7 +79,7 @@ export const ResponsiveDebugger: React.FC<{
     <div className={`fixed ${positionClasses[position]} z-[9999] bg-black/95 text-white text-xs rounded-lg shadow-xl border border-gray-600 font-mono transition-all duration-300`}>
       <div className="p-3">
         <div className="flex items-center justify-between mb-2">
-          <span className="font-bold text-blue-400">AIRAVAT Debug</span>
+          <span className="font-bold text-blue-400">AIRAVATH Debug</span>
           <div className="flex gap-1">
             <button 
               onClick={() => setIsExpanded(!isExpanded)}

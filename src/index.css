@@ -41,7 +41,7 @@
 .text-clamp-6xl { font-size: clamp(2.5rem, 7vw, 4.5rem); }
 .text-clamp-7xl { font-size: clamp(3rem, 8vw, 5.5rem); }
 
-/* AIRAVAT-specific responsive utilities for very small devices */
+/* AIRAVATH-specific responsive utilities for very small devices */
 @media (max-width: 320px) {
   .text-xxs-responsive { font-size: 0.65rem !important; line-height: 1.1 !important; }
   .text-xs-responsive { font-size: 0.7rem !important; line-height: 1.2 !important; }
@@ -89,7 +89,7 @@
   }
 }
 
-/* Enhanced mobile responsiveness and accessibility - AIRAVAT optimized */
+/* Enhanced mobile responsiveness and accessibility - AIRAVATH optimized */
 @media (max-width: 420px) {
   /* Improved typography for small screens */
   h1, h2, h3, h4, h5, h6 {
@@ -99,7 +99,7 @@
     margin-bottom: 0.5rem !important;
   }
   
-  /* AIRAVAT brand text optimization */
+  /* AIRAVATH brand text optimization */
   .brand-text, .hero-title {
     font-size: clamp(1.25rem, 5vw, 2rem) !important;
     letter-spacing: 0.02em !important;
@@ -124,7 +124,7 @@
     box-sizing: border-box !important;
   }
   
-  /* Enhanced button responsiveness for AIRAVAT CTAs */
+  /* Enhanced button responsiveness for AIRAVATH CTAs */
   button, .btn, [role="button"] {
     max-width: 100% !important;
     word-wrap: break-word !important;
@@ -137,7 +137,7 @@
     touch-action: manipulation !important;
   }
   
-  /* AIRAVAT hero buttons specific styling */
+  /* AIRAVATH hero buttons specific styling */
   .hero-button {
     width: 100% !important;
     max-width: 280px !important;

@@ -1,4 +1,4 @@
-# AIRAVAT Footer Implementation
+# AIRAVATH Footer Implementation
 
 ## Overview
 Comprehensive footer design for both mobile and desktop screens with all requested features.
@@ -6,7 +6,7 @@ Comprehensive footer design for both mobile and desktop screens with all request
 ## Features Implemented
 
 ### 1. **Logo (Big Size)**
-- ✅ Large, prominent AIRAVAT logo
+- ✅ Large, prominent AIRAVATH logo
 - ✅ Fallback text logo with plane icon if image fails to load
 - ✅ Responsive sizing (h-12 mobile, h-16 tablet, h-20 desktop)
 
@@ -29,8 +29,8 @@ Comprehensive footer design for both mobile and desktop screens with all request
 - ✅ All routes properly configured in App.tsx
 
 ### 5. **Contact Information**
-- ✅ Email: info@airavat.com (clickable mailto link)
-- ✅ Phone: +1 (555) AIRAVAT (clickable tel link)
+- ✅ Email: info@AIRAVATH.com (clickable mailto link)
+- ✅ Phone: +1 (555) AIRAVATH (clickable tel link)
 - ✅ Address: Innovation District, Tech Hub Center, Silicon Valley, CA
 - ✅ Contact CTA button linking to contact page
 

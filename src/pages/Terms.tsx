@@ -34,7 +34,7 @@ const Terms = () => {
                   <div>
                     <p className="text-yellow-200 text-sm font-medium">Important Notice</p>
                     <p className="text-yellow-300 text-sm">
-                      These terms govern your use of AIRAVAT's eVTOL transportation services. 
+                      These terms govern your use of AIRAVATH's eVTOL transportation services. 
                       Please read carefully before using our services.
                     </p>
                   </div>
@@ -45,7 +45,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">Acceptance of Terms</h2>
               <p className="text-zinc-300 leading-relaxed">
-                By accessing or using AIRAVAT's services, you agree to be bound by these Terms of Service 
+                By accessing or using AIRAVATH's services, you agree to be bound by these Terms of Service 
                 and all applicable laws and regulations. If you do not agree with any part of these terms, 
                 you may not use our services.
               </p>
@@ -55,7 +55,7 @@ const Terms = () => {
               <h2 className="text-2xl font-semibold mb-4 text-white">Service Description</h2>
               <div className="space-y-4 text-zinc-300">
                 <p>
-                  AIRAVAT provides electric vertical take-off and landing (eVTOL) aircraft services 
+                  AIRAVATH provides electric vertical take-off and landing (eVTOL) aircraft services 
                   for urban air mobility, including:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
@@ -152,7 +152,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">Liability and Insurance</h2>
               <p className="text-zinc-300 leading-relaxed mb-4">
-                AIRAVAT maintains comprehensive insurance coverage for all operations. However, passengers 
+                AIRAVATH maintains comprehensive insurance coverage for all operations. However, passengers 
                 participate at their own risk and should maintain personal travel and health insurance.
               </p>
               <div className="bg-blue-900/20 border border-blue-800/30 p-4 rounded-lg">
@@ -166,7 +166,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">Modifications to Terms</h2>
               <p className="text-zinc-300 leading-relaxed">
-                AIRAVAT reserves the right to modify these terms at any time. Users will be notified 
+                AIRAVATH reserves the right to modify these terms at any time. Users will be notified 
                 of significant changes via email or through our platform. Continued use of services 
                 constitutes acceptance of modified terms.
               </p>
@@ -176,7 +176,7 @@ const Terms = () => {
               <h2 className="text-2xl font-semibold mb-4 text-white">Contact Information</h2>
               <p className="text-zinc-300 leading-relaxed">
                 For questions about these Terms of Service, please contact our legal team at 
-                legal@airavat.com or through our 
+                legal@AIRAVATH.com or through our 
                 <Link to="/contact" className="text-blue-400 hover:text-blue-300 ml-1 underline">
                   contact page
                 </Link>.

@@ -31,7 +31,7 @@ interface ResponsiveFormProps {
 }
 
 /**
- * Enhanced responsive form component for AIRAVAT
+ * Enhanced responsive form component for AIRAVATH
  * Handles contact forms, newsletter signups, etc. with optimal UX across devices
  */
 export const ResponsiveForm: React.FC<ResponsiveFormProps> = ({
@@ -289,7 +289,7 @@ export const ResponsiveForm: React.FC<ResponsiveFormProps> = ({
                 variant="body"
                 className="text-gray-300"
               >
-                Ready to revolutionize your travel experience? Contact AIRAVAT today to learn more about our cutting-edge air taxi services and be part of the future of urban mobility.
+                Ready to revolutionize your travel experience? Contact AIRAVATH today to learn more about our cutting-edge air taxi services and be part of the future of urban mobility.
               </ResponsiveText>
             </div>
           </div>

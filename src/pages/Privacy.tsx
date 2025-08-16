@@ -30,7 +30,7 @@ const Privacy = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">Introduction</h2>
               <p className="text-zinc-300 leading-relaxed">
-                At AIRAVAT, we are committed to protecting your privacy and ensuring the security of your personal information. 
+                At AIRAVATH, we are committed to protecting your privacy and ensuring the security of your personal information. 
                 This Privacy Policy explains how we collect, use, and safeguard your data when you interact with our services 
                 and eVTOL transportation solutions.
               </p>
@@ -128,7 +128,7 @@ const Privacy = () => {
               <h2 className="text-2xl font-semibold mb-4 text-white">Contact Information</h2>
               <p className="text-zinc-300 leading-relaxed">
                 If you have any questions about this Privacy Policy or our data practices, 
-                please contact our Data Protection Officer at privacy@airavat.com or through our 
+                please contact our Data Protection Officer at privacy@AIRAVATH.com or through our 
                 <Link to="/contact" className="text-blue-400 hover:text-blue-300 ml-1 underline">
                   contact page
                 </Link>.

@@ -39,19 +39,19 @@ const Footer = () => {
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://instagram.com/airavat',
+      url: 'https://instagram.com/airavath',
       color: 'hover:text-pink-500'
     },
     {
       name: 'Facebook', 
       icon: Facebook,
-      url: 'https://facebook.com/airavat',
+      url: 'https://facebook.com/airavath',
       color: 'hover:text-blue-500'
     },
     {
       name: 'YouTube',
       icon: Youtube,
-      url: 'https://youtube.com/airavat',
+      url: 'https://youtube.com/airavath',
       color: 'hover:text-red-500'
     }
   ];
@@ -69,7 +69,7 @@ const Footer = () => {
               <div className="relative">
                 <img 
                   src="/new-airavata-logo.png" 
-                  alt="AIRAVAT" 
+                  alt="AIRAVATH" 
                   className="h-5 w-auto sm:h-6 lg:h-16 object-contain"
                   onError={(e) => {
                     // Fallback to text logo if image fails
@@ -81,7 +81,7 @@ const Footer = () => {
                 <div className="hidden">
                   <div className="flex items-center space-x-2">
                     <Plane className="h-4 w-4 lg:h-10 lg:w-10 text-blue-500" />
-                    <span className="text-base lg:text-3xl font-bold text-white">AIRAVAT</span>
+                    <span className="text-base lg:text-3xl font-bold text-white">AIRAVATH</span>
                   </div>
                 </div>
               </div>
@@ -170,10 +170,10 @@ const Footer = () => {
                 <div>
                   <p className="text-zinc-400 text-sm">Email</p>
                   <a 
-                    href="mailto:info@airavat.com" 
+                    href="mailto:info@airavath.com" 
                     className="text-zinc-200 hover:text-white transition-colors"
                   >
-                    info@airavat.com
+                    info@airavath.com
                   </a>
                 </div>
               </div>
@@ -184,10 +184,10 @@ const Footer = () => {
                 <div>
                   <p className="text-zinc-400 text-sm">Phone</p>
                   <a 
-                    href="tel:+1-555-AIRAVAT" 
+                    href="tel:+1-555-AIRAVATH" 
                     className="text-zinc-200 hover:text-white transition-colors"
                   >
-                    +1 (555) AIRAVAT
+                    +1 (555) AIRAVATH
                   </a>
                 </div>
               </div>
@@ -217,7 +217,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex flex-col sm:flex-row items-center sm:space-x-4 space-y-2 sm:space-y-0">
               <span className="text-zinc-400 text-sm font-mono">
-                © {currentYear} AIRAVAT. All rights reserved.
+                © {currentYear} AIRAVATH. All rights reserved.
               </span>
               <div className="hidden sm:block h-4 w-px bg-zinc-700"></div>
               <span className="text-zinc-500 text-xs font-mono">

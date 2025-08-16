@@ -47,8 +47,8 @@ const VideoBackground = ({ className = '', poster, children }: VideoBackgroundPr
         poster={poster || "/api/placeholder/1920/1080"}
       >
         {/* High-quality video sources will be added here */}
-        <source src="/videos/airavata-cinematic-voyage-15/public/videos/Pointtopoint_airport_transfer_202507242058_.mp4" type="video/mp4" />
-        <source src="/videos/airavata-cinematic-hero.webm" type="video/webm" />
+        <source src="/videos/AIRAVATHa-cinematic-voyage-15/public/videos/Pointtopoint_airport_transfer_202507242058_.mp4" type="video/mp4" />
+        <source src="/videos/AIRAVATHa-cinematic-hero.webm" type="video/webm" />
         {/* Fallback for unsupported browsers */}
         Your browser does not support the video tag.
       </video>

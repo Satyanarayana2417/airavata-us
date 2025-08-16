@@ -180,7 +180,7 @@ const Objectives = () => {
         `
       }} />
       
-      <div className="min-h-screen bg-airavata-black pt-16">
+      <div className="min-h-screen bg-AIRAVATHa-black pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           {/* Header */}
           <div className="text-center mb-12">
@@ -231,13 +231,13 @@ const Objectives = () => {
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}>
                 {/* Timeline dot */}
-                <div className="timeline-dot absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-airavata-black z-10" style={{ opacity: 1, visibility: 'visible' }}></div>
+                <div className="timeline-dot absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full border-4 border-AIRAVATHa-black z-10" style={{ opacity: 1, visibility: 'visible' }}></div>
                 
                 {/* Content */}
                 <div className={`timeline-content w-full md:w-5/12 ml-16 md:ml-0 ${
                   index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'
                 }`} style={{ opacity: 1, visibility: 'visible' }}>
-                  <div className="group bg-airavata-gray/20 backdrop-blur-sm border border-airavata-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+                  <div className="group bg-AIRAVATHa-gray/20 backdrop-blur-sm border border-AIRAVATHa-gray rounded-lg p-4 hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
                     <div className="flex items-center mb-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/40 rounded-lg flex items-center justify-center mr-3 group-hover:from-white/40 group-hover:to-white/60 group-hover:scale-110 transition-all duration-300">
                         <milestone.icon className="milestone-icon text-white group-hover:scale-125 transition-transform duration-300" size={20} />
@@ -272,26 +272,26 @@ const Objectives = () => {
 
         {/* 2029 Vision */}
         <div className="mt-24 text-center">
-          <div className="bg-gradient-to-br from-airavata-blue/10 via-airavata-gray/20 to-airavata-blue/5 rounded-lg p-8 border border-airavata-blue/30">
+          <div className="bg-gradient-to-br from-AIRAVATHa-blue/10 via-AIRAVATHa-gray/20 to-AIRAVATHa-blue/5 rounded-lg p-8 border border-AIRAVATHa-blue/30">
             <h2 className="text-3xl sm:text-4xl font-orbitron font-bold text-white mb-6">
               2029 Vision: The Connected Sky
             </h2>
             <p className="text-lg sm:text-xl text-white leading-relaxed max-w-4xl mx-auto mb-8">
-              By 2029, AIRAVAT will have transformed urban landscapes with integrated 
+              By 2029, AIRAVATH will have transformed urban landscapes with integrated 
               helipad infrastructure on residential buildings, hospitals, and corporate offices. 
               Our vision: a seamless healthcare ecosystem where emergency response times 
               are measured in minutes, not hours.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              <div className="group bg-airavata-black/50 rounded-lg p-4 border border-airavata-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="group bg-AIRAVATHa-black/50 rounded-lg p-4 border border-AIRAVATHa-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
                 <div className="text-xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">10,000+</div>
                 <div className="text-white text-sm group-hover:text-white/80 transition-colors duration-300">Rooftop Helipads</div>
               </div>
-              <div className="group bg-airavata-black/50 rounded-lg p-4 border border-airavata-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="group bg-AIRAVATHa-black/50 rounded-lg p-4 border border-AIRAVATHa-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
                 <div className="text-xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">50</div>
                 <div className="text-white text-sm group-hover:text-white/80 transition-colors duration-300">Global Cities</div>
               </div>
-              <div className="group bg-airavata-black/50 rounded-lg p-4 border border-airavata-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
+              <div className="group bg-AIRAVATHa-black/50 rounded-lg p-4 border border-AIRAVATHa-gray hover:border-white/50 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-500 hover:scale-105 cursor-pointer">
                 <div className="text-xl font-bold text-white mb-1 group-hover:scale-110 transition-transform duration-300">5 Min</div>
                 <div className="text-white text-sm group-hover:text-white/80 transition-colors duration-300">Average Response Time</div>
               </div>

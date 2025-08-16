@@ -80,7 +80,7 @@ const Contact = () => {
     setTimeout(() => {
       toast({
         title: "Message Sent Successfully",
-        description: "Thank you for your interest in AIRAVAT. We'll be in touch soon.",
+        description: "Thank you for your interest in AIRAVATH. We'll be in touch soon.",
       });
       
       setFormData({ name: '', email: '', message: '' });
@@ -170,7 +170,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="bg-transparent border-2 border-white text-white placeholder-white focus:border-white focus:ring-white/20 resize-none"
-                  placeholder="Tell us about your interest in AIRAVAT..."
+                  placeholder="Tell us about your interest in AIRAVATH..."
                 />
               </div>
 
@@ -219,7 +219,7 @@ const Contact = () => {
               </h3>
               <div className="space-y-3 text-airavata-light-gray">
                 <div className="mb-4">
-                  <p className="font-semibold text-white mb-2">AIRAVAT Headquarters</p>
+                  <p className="font-semibold text-white mb-2">AIRAVATH Headquarters</p>
                   <p>123 Innovation Drive</p>
                   <p>INDIA, 94102</p>
                 </div>

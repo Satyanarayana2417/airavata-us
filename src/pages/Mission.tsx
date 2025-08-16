@@ -128,7 +128,7 @@ const Mission = () => {
             className="text-white max-w-full xs:max-w-xl mb-4 xs:mb-6"
             style={{
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+              fontSize: 'clamp(1.25rem, 3.2vw, 1.75rem)', // Reduced from clamp(1.5rem, 4vw, 2rem)
               fontWeight: '600',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
@@ -139,21 +139,25 @@ const Mission = () => {
             THE PROBLEM<br />
           </h1>
           
-          {/* Sub Text */}
-          <p 
-            className="text-white/90"
+          {/* Sub Text - Clean and balanced typography */}
+          <div 
+            className="text-white/90 max-w-[600px] pr-4 sm:pr-8"
             style={{
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-              fontSize: '1rem',
+              fontSize: 'clamp(14px, 1.4vw, 18px)', // Reduced from clamp(16px, 1.8vw, 22px)
               fontWeight: '400',
               letterSpacing: '0.02em',
               textShadow: '0 1px 2px rgba(0,0,0,0.5)',
-              lineHeight: '1.6',
+              lineHeight: '1.6', // Consistent line spacing
               textTransform: 'uppercase',
             }}
           >
-          Traditional transport systems are overwhelmed—congested <br />roads, unpredictable delays, and limited emergency mobility <br />restrict both daily life and critical services. As cities grow, <br /> time loss and inefficiency become part of everyday travel.
-          </p>
+            Traditional transport systems are overwhelmed—congested<br />
+            roads, unpredictable delays, and limited emergency<br />
+            mobility restrict both daily life and critical services.<br />
+            As cities grow, time loss and inefficiency become<br />
+            part of everyday travel.
+          </div>
           
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -330,13 +334,13 @@ const Mission = () => {
               After
             </h2>
             <p className="text-gray-300 text-base leading-relaxed text-center px-2 group-hover:text-black transition-colors duration-700">
-              AIRAVAT air taxi flying directly to destination
+              AIRAVATH air taxi flying directly to destination
             </p>
             <div className="text-white text-4xl font-bold leading-none group-hover:text-black transition-colors duration-700">
               15 Minutes
             </div>
             <p className="text-gray-400 text-base tracking-wide uppercase group-hover:text-black transition-colors duration-700">
-              AIRAVAT Solution
+              AIRAVATH Solution
             </p>
           </div>
         </div>
